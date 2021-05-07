@@ -17,7 +17,7 @@ export const HomeScreen = (props: HomeScreenProps) => {
       }}
     >
       <ActionButtonsContainer>
-        <ActionButton title={"Borrow"} />
+        <ActionButton title={"Borrow!"} />
         <ActionButton title={"Lend"} />
       </ActionButtonsContainer>
     </View>
