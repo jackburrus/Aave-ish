@@ -18,8 +18,8 @@ export const HomeScreen = (props: HomeScreenProps) => {
       }}
     >
       <ActionButtonsContainer>
-        <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
         <ActionButton title={"Lend"} icon={<LendIcon />} />
+        <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
     </View>
   );

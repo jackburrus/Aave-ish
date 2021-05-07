@@ -14,13 +14,15 @@ export const ActionButtonContainer = styled.View<{ buttonColor: string }>`
   margin: 10px;
   /* border: 1px solid black; */
   border-radius: 30px;
-  background-color: ${({ buttonColor }) => buttonColor.toString()}
+  background-color: ${({ buttonColor }) => buttonColor.toString()};
   flex-direction: row;
 `;
 
 export const StyledButtonText = styled.Text`
   color: ${(props) => props.theme.main};
   font-size: 18px;
+  font-family: "Rubik_500Medium";
+  /* font-family: "Rubik_400Regular"; */
 `;
 
 export const IconContainer = styled.View<{ shadowColor: string }>`
