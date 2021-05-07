@@ -15,7 +15,7 @@ const HeaderLeft = () => {
 
   return (
     <AaveIcon
-      style={{ marginLeft: 10 }}
+      style={{ marginLeft: 20 }}
       onPress={() => {
         navigation.navigate("Home");
       }}
