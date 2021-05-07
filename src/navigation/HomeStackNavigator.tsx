@@ -33,6 +33,7 @@ function HomeStackNavigator() {
           backgroundColor: theme.main,
           shadowColor: "transparent",
         },
+        title: "",
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
