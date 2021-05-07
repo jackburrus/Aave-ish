@@ -11,12 +11,15 @@ import {
   NewActionContainer,
   AssetsContainer,
 } from "./Home.styles";
+import { WalletCard } from "../../components/WalletCard/WalletCard.component";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
   return (
     <HomeContainer>
-      <WalletContainer />
+      <WalletContainer>
+        <WalletCard />
+      </WalletContainer>
 
       <ActionButtonsContainer>
         <ActionButton title={"Lend"} icon={<LendIcon />} />
