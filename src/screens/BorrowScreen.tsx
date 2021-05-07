@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface ActionButtonContainerProps {}
+interface BorrowScreenProps {}
 
-export const ActionButtonContainer = (props: ActionButtonContainerProps) => {
+export const BorrowScreen = (props: BorrowScreenProps) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>ActionButtonContainer</Text>
+      <Text>BorrowScreen</Text>
     </View>
   );
 };

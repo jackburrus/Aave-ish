@@ -11,6 +11,8 @@ import {
   useFonts,
 } from "@expo-google-fonts/rubik";
 import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import RootTabNavigator from "./src/navigation/RootTabNavigator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -22,8 +24,10 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <ThemeProvider theme={darkTheme}>
-      <HomeScreen />
-    </ThemeProvider>
+    <NavigationContainer>
+      <ThemeProvider theme={darkTheme}>
+        <RootTabNavigator />
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }

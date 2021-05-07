@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const { width, height } = Dimensions.get("window");
 
-export const ActionButtonContainer = styled.View<{ buttonColor: string }>`
+export const ActionButtonContainer = styled.Pressable<{ buttonColor: string }>`
   width: ${width / 2.7}px;
   display: flex;
   flex: 1;

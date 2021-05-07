@@ -1,20 +1,26 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { Pressable, TouchableOpacity } from "react-native";
 import {
   ActionButtonContainer,
   StyledButtonText,
   IconContainer,
 } from "./ActionButton.styles";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
+import { useNavigation } from "@react-navigation/native";
+
 interface ActionButtonProps {
   title: string;
   icon: React.ReactElement;
+  // route: ProfileScreenRouteProp;
+  // navigation: ProfileScreenNavigationProp;
 }
 
 export const ActionButton = (props: ActionButtonProps) => {
   const { title, icon } = props;
+  const navigation = useNavigation();
   return (
     <ActionButtonContainer
+      onPress={() => navigation.navigate(title === "Lend" ? "Lend" : "Borrow")}
       buttonColor={title === "Borrow" ? "#E2F2FD" : "#eafefd"}
     >
       <StyledButtonText>{title}</StyledButtonText>
