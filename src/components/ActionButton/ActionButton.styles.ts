@@ -23,12 +23,13 @@ export const StyledButtonText = styled.Text`
   font-size: 18px;
 `;
 
-export const IconContainer = styled.View`
+export const IconContainer = styled.View<{ shadowColor: string }>`
   width: 50px;
   height: 50px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 3px 2px 2px rgba(108, 218, 176, 0.6);
+
+  box-shadow: 3px 2px 2px ${({ shadowColor }) => shadowColor};
 `;
 
 export const ActionButtonsContainer = styled.View`

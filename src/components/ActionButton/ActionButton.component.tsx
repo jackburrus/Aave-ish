@@ -16,7 +16,13 @@ export const ActionButton = (props: ActionButtonProps) => {
       buttonColor={title === "Borrow" ? "#E2F2FD" : "#eafefd"}
     >
       <StyledButtonText>{title}</StyledButtonText>
-      <IconContainer />
+      <IconContainer
+        shadowColor={
+          title === "Borrow"
+            ? "rgba(161, 244, 255, 0.6)"
+            : "rgba(108, 218, 176, 0.6)"
+        }
+      />
     </ActionButtonContainer>
   );
 };
