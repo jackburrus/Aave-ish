@@ -10,7 +10,7 @@ declare module "styled-components" {
 }
 
 export const darkTheme: DefaultTheme = {
-  main: "#31346B",
+  main: "#1b1d5b",
   secondary: "pink",
   lightBlue: "#E2F2FD",
   lightGreen: "#eafefd",

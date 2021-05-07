@@ -5,24 +5,18 @@ import { ActionButtonsContainer } from "../../components/ActionButton/ActionButt
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
 import AaveIcon from "../../assets/icons/AaveIcon";
-
+import { HomeContainer, WalletContainer } from "./Home.styles";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#1B1D5B",
-      }}
-    >
-      <AaveIcon />
+    <HomeContainer>
+      <WalletContainer />
+
       <ActionButtonsContainer>
         <ActionButton title={"Lend"} icon={<LendIcon />} />
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
-    </View>
+    </HomeContainer>
   );
 };
