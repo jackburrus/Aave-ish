@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { ActionButton } from "../../components/ActionButton/ActionButton.component";
 import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.styles";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
+import LendIcon from "../../assets/icons/LendIcon";
 
 interface HomeScreenProps {}
 
@@ -18,7 +19,7 @@ export const HomeScreen = (props: HomeScreenProps) => {
     >
       <ActionButtonsContainer>
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
-        <ActionButton title={"Lend"} icon={<BorrowIcon />} />
+        <ActionButton title={"Lend"} icon={<LendIcon />} />
       </ActionButtonsContainer>
     </View>
   );
