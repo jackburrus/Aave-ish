@@ -28,7 +28,8 @@ export const IconContainer = styled.View<{ shadowColor: string }>`
   height: 50px;
   border-radius: 10px;
   background-color: white;
-
+  justify-content: center;
+  align-items: center;
   box-shadow: 3px 2px 2px ${({ shadowColor }) => shadowColor};
 `;
 
