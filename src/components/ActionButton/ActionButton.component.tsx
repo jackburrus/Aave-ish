@@ -12,7 +12,9 @@ interface ActionButtonProps {
 export const ActionButton = (props: ActionButtonProps) => {
   const { title } = props;
   return (
-    <ActionButtonContainer>
+    <ActionButtonContainer
+      buttonColor={title === "Borrow" ? "#E2F2FD" : "#eafefd"}
+    >
       <StyledButtonText>{title}</StyledButtonText>
       <IconContainer />
     </ActionButtonContainer>

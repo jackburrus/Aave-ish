@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const { width, height } = Dimensions.get("window");
 
-export const ActionButtonContainer = styled.View`
+export const ActionButtonContainer = styled.View<{ buttonColor: string }>`
   width: ${width / 2.7}px;
   display: flex;
   flex: 1;
@@ -14,7 +14,7 @@ export const ActionButtonContainer = styled.View`
   margin: 10px;
   /* border: 1px solid black; */
   border-radius: 30px;
-  background-color: #eafefd;
+  background-color: ${({ buttonColor }) => buttonColor.toString()}
   flex-direction: row;
 `;
 
@@ -29,4 +29,12 @@ export const IconContainer = styled.View`
   border-radius: 10px;
   background-color: white;
   box-shadow: 3px 2px 2px rgba(108, 218, 176, 0.6);
+`;
+
+export const ActionButtonsContainer = styled.View`
+  width: ${width - 30}px;
+  height: 110px;
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
 `;

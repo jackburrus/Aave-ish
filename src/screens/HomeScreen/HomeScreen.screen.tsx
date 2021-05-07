@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { ActionButton } from "../../components/ActionButton/ActionButton.component";
-import { ActionButtonsContainer } from "../../components/ActionButton/ActionButtonsContainer.styles";
+import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.styles";
 import { useDimensions } from "../../hooks/useDimensions";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps) => {
-  const { screen } = useDimensions();
   return (
     <View
       style={{
@@ -17,7 +16,7 @@ export const HomeScreen = (props: HomeScreenProps) => {
       }}
     >
       <ActionButtonsContainer>
-        <ActionButton title={"Borrow!"} />
+        <ActionButton title={"Borrow"} />
         <ActionButton title={"Lend"} />
       </ActionButtonsContainer>
     </View>
