@@ -6,6 +6,7 @@ import { BorrowScreen } from "../screens/BorrowScreen";
 import AaveIcon from "../assets/icons/AaveIcon";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
+import { View } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -23,12 +24,19 @@ const HeaderLeft = () => {
   );
 };
 
+const HeaderRight = () => {
+  return (
+    <View style={{ width: 50, height: 50, borderWidth: 1, marginRight: 20 }} />
+  );
+};
+
 function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
       screenOptions={{
         headerLeft: () => <HeaderLeft />,
+        headerRight: () => <HeaderRight />,
         headerStyle: {
           backgroundColor: theme.main,
           shadowColor: "transparent",

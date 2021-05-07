@@ -5,7 +5,12 @@ import { ActionButtonsContainer } from "../../components/ActionButton/ActionButt
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
 import AaveIcon from "../../assets/icons/AaveIcon";
-import { HomeContainer, WalletContainer } from "./Home.styles";
+import {
+  HomeContainer,
+  WalletContainer,
+  NewActionContainer,
+  AssetsContainer,
+} from "./Home.styles";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
@@ -17,6 +22,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         <ActionButton title={"Lend"} icon={<LendIcon />} />
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
+      <AssetsContainer />
     </HomeContainer>
   );
 };
