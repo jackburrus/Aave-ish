@@ -7,6 +7,7 @@ import AaveIcon from "../assets/icons/AaveIcon";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import { View } from "react-native";
+import { MarketDetails } from "../screens/MarketDetails.screen";
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,7 @@ function HomeStackNavigator() {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="Lend" component={LendScreen} />
       <Stack.Screen name="Borrow" component={BorrowScreen} />
+      <Stack.Screen name="MarketDetails" component={MarketDetails} />
     </Stack.Navigator>
   );
 }

@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { IconContainer } from "../ActionButton/ActionButton.styles";
@@ -17,8 +18,11 @@ interface MarketRowProps {
 
 export const MarketRow = (props: MarketRowProps) => {
   const { marketSize, depositAPY } = props;
+  const navigation = useNavigation();
   return (
-    <StyledMarketRowContainer>
+    <StyledMarketRowContainer
+      onPress={() => navigation.navigate("MarketDetails", { props })}
+    >
       <StyledIconContainer>
         <IconContainer
           style={{ width: 70, height: 70 }}

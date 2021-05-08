@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const { width, height } = Dimensions.get("window");
 
-export const StyledMarketRowContainer = styled.View`
+export const StyledMarketRowContainer = styled.Pressable`
   width: ${width - 50}px;
   /* border: 1px solid black; */
   height: 100px;
