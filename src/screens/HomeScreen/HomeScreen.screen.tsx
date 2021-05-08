@@ -18,7 +18,11 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
   return (
     <HomeContainer>
       <WalletContainer>
-        <WalletCard />
+        <WalletCard
+          title={"Deposit Information"}
+          balance={182.307}
+          chart={<Text>Chart</Text>}
+        />
       </WalletContainer>
 
       <ActionButtonsContainer>

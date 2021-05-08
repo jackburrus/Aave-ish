@@ -7,23 +7,30 @@ import {
   WalletCardTitleContainer,
   TitleAndBalanceContainer,
   WalletChartContainer,
+  WalletCardTitleText,
+  WalletBalanceText,
+  ApproximateText,
 } from "./WalletCard.styles";
-interface WalletCardProps {}
+interface WalletCardProps {
+  title: string;
+  balance: number;
+  chart: React.ReactElement;
+}
 
 export const WalletCard = (props: WalletCardProps) => {
+  const { title, balance, chart } = props;
   return (
     <WalletCardContainer>
       <TitleAndBalanceContainer>
         <WalletCardTitleContainer>
-          <Text>Title</Text>
+          <WalletCardTitleText>{title}</WalletCardTitleText>
         </WalletCardTitleContainer>
         <WalletBalanceContainer>
-          <Text>Balance</Text>
+          <WalletBalanceText>${balance}</WalletBalanceText>
+          <ApproximateText>Approximate balance</ApproximateText>
         </WalletBalanceContainer>
       </TitleAndBalanceContainer>
-      <WalletChartContainer>
-        <Text>Chart</Text>
-      </WalletChartContainer>
+      <WalletChartContainer>{chart}</WalletChartContainer>
     </WalletCardContainer>
   );
 };
