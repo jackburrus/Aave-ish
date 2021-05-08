@@ -28,4 +28,5 @@ export const AssetsContainer = styled.View`
 
   flex: 2;
   width: ${width}px;
+  align-items: center;
 `;

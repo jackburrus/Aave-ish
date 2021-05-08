@@ -14,6 +14,8 @@ import {
   AssetsContainer,
 } from "./Home.styles";
 import { WalletCard } from "../../components/WalletCard/WalletCard.component";
+import { MarketRow } from "../../components/MarketRow/MarketRow.component";
+import { StyledMarketsContainer } from "../../components/MarketRow/MarketRow.styles";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
@@ -31,7 +33,12 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         <ActionButton title={"Lend"} icon={<LendIcon />} />
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
-      <AssetsContainer />
+      <AssetsContainer>
+        <MarketRow />
+      </AssetsContainer>
+      {/* <StyledMarketsContainer>
+        
+      </StyledMarketsContainer> */}
     </HomeContainer>
   );
 };
