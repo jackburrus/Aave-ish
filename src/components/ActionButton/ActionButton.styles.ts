@@ -8,7 +8,7 @@ export const ActionButtonContainer = styled.Pressable<{ buttonColor: string }>`
   display: flex;
   flex: 1;
   justify-content: space-between;
-  padding-left: 15px;
+  padding-left: 25px;
   padding-right: 15px;
   align-items: center;
   margin: 10px;

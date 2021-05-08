@@ -45,7 +45,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         {MarketsData.map((market, index) => {
           return (
             <MarketRow
-              index={index.toString()}
+              key={index.toString()}
               marketSize={market.marketSize}
               depositAPY={market.depositAPY}
             />

@@ -7,7 +7,7 @@ import AaveIcon from "../assets/icons/AaveIcon";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import { View } from "react-native";
-import { MarketDetails } from "../screens/MarketDetails.screen";
+import { MarketDetails } from "../screens/MarketDetails/MarketDetails.screen";
 
 const Stack = createStackNavigator();
 

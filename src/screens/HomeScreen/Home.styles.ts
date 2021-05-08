@@ -10,6 +10,7 @@ export const WalletContainer = styled.View`
   width: ${width}px;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `;
 export const NewActionContainer = styled.View`
   flex-direction: row;

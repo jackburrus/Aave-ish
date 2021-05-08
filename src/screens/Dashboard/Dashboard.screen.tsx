@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface MarketDetailsProps {}
+interface DashBoardProps {}
 
-export const MarketDetails = ({ route, navigation }) => {
-  const { marketSize } = route.params.props;
+export const DashBoard = (props: DashBoardProps) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>{marketSize}</Text>
+      <Text>DashBoard</Text>
     </View>
   );
 };
