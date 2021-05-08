@@ -32,6 +32,7 @@ export const StyledDetailsContainer = styled.View`
   display: flex;
   flex: 2;
   flex-direction: row;
+  margin-right: 10px;
 `;
 export const StyledMarketSizeContainer = styled.View`
   /* border: 1px solid black; */
@@ -59,5 +60,5 @@ export const StyledMarketRowValue = styled.Text`
   color: ${(props) => props.theme.main};
   font-size: 14px;
   font-family: "Rubik_500Medium";
-  opacity: 0.8;
+  opacity: 0.6;
 `;

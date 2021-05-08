@@ -10,9 +10,13 @@ import {
   StyledMarketSizeText,
   StyledMarketRowValue,
 } from "./MarketRow.styles";
-interface MarketRowProps {}
+interface MarketRowProps {
+  marketSize: string;
+  depositAPY: number;
+}
 
 export const MarketRow = (props: MarketRowProps) => {
+  const { marketSize, depositAPY } = props;
   return (
     <StyledMarketRowContainer>
       <StyledIconContainer>
@@ -26,11 +30,11 @@ export const MarketRow = (props: MarketRowProps) => {
       <StyledDetailsContainer>
         <StyledMarketSizeContainer>
           <StyledMarketSizeText>Market Size</StyledMarketSizeText>
-          <StyledMarketRowValue>892.67M</StyledMarketRowValue>
+          <StyledMarketRowValue>{marketSize}</StyledMarketRowValue>
         </StyledMarketSizeContainer>
         <StyledAPYContainer>
           <StyledMarketSizeText>Deposit APY</StyledMarketSizeText>
-          <StyledMarketRowValue>12.63%</StyledMarketRowValue>
+          <StyledMarketRowValue>{depositAPY}%</StyledMarketRowValue>
         </StyledAPYContainer>
       </StyledDetailsContainer>
     </StyledMarketRowContainer>

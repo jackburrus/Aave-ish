@@ -23,10 +23,25 @@ export const HomeContainer = styled.View`
   align-items: center;
 `;
 
-export const AssetsContainer = styled.View`
+export const AssetsContainer = styled.ScrollView`
   /* border: 2px solid black; */
 
   flex: 2;
   width: ${width}px;
-  align-items: center;
+
+  /* align-items: center; */
+`;
+
+export const HeaderContainer = styled.View`
+  width: ${width - 50}px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* border: 1px solid red; */
+`;
+
+export const HeaderText = styled.Text`
+  color: white;
+  font-size: 22px;
+  font-family: "Rubik_500Medium";
+  /* margin-left: 10px; */
 `;

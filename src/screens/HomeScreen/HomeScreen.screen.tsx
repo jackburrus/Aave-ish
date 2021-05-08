@@ -12,10 +12,13 @@ import {
   WalletContainer,
   NewActionContainer,
   AssetsContainer,
+  HeaderContainer,
+  HeaderText,
 } from "./Home.styles";
 import { WalletCard } from "../../components/WalletCard/WalletCard.component";
 import { MarketRow } from "../../components/MarketRow/MarketRow.component";
 import { StyledMarketsContainer } from "../../components/MarketRow/MarketRow.styles";
+import { MarketsData } from "../../mockdata/Markets";
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
@@ -28,13 +31,26 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
           chart={<PieChartExample />}
         />
       </WalletContainer>
-
+      <HeaderContainer>
+        <HeaderText>New Action</HeaderText>
+      </HeaderContainer>
       <ActionButtonsContainer>
         <ActionButton title={"Lend"} icon={<LendIcon />} />
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
-      <AssetsContainer>
-        <MarketRow />
+      <HeaderContainer>
+        <HeaderText>Markets</HeaderText>
+      </HeaderContainer>
+      <AssetsContainer contentContainerStyle={{ alignItems: "center" }}>
+        {MarketsData.map((market, index) => {
+          return (
+            <MarketRow
+              index={index.toString()}
+              marketSize={market.marketSize}
+              depositAPY={market.depositAPY}
+            />
+          );
+        })}
       </AssetsContainer>
       {/* <StyledMarketsContainer>
         

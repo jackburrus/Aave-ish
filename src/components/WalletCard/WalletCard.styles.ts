@@ -16,7 +16,9 @@ export const WalletCardTitleContainer = styled.View`
   display: flex;
   flex: 1;
   /* border: 1px solid black; */
-  justify-content: center;
+
+  justify-content: flex-end;
+  padding-bottom: 10px;
   padding-left: 25px;
 `;
 export const WalletCardTitleText = styled.Text`
@@ -31,6 +33,7 @@ export const WalletBalanceContainer = styled.View`
   flex: 1;
   padding-left: 25px;
   /* border: 1px solid purple; */
+  margin-bottom: 20px;
 `;
 
 export const WalletBalanceText = styled.Text`
