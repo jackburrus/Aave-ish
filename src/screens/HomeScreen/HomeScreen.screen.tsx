@@ -5,6 +5,8 @@ import { ActionButtonsContainer } from "../../components/ActionButton/ActionButt
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
 import AaveIcon from "../../assets/icons/AaveIcon";
+
+import PieChartExample from "../../components/WalletCard/PieChart.component";
 import {
   HomeContainer,
   WalletContainer,
@@ -21,7 +23,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         <WalletCard
           title={"Deposit Information"}
           balance={182.307}
-          chart={<Text>Chart</Text>}
+          chart={<PieChartExample />}
         />
       </WalletContainer>
 
