@@ -1,5 +1,8 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { LendScreen } from "../screens/LendScreen";
 import { BorrowScreen } from "../screens/BorrowScreen";
@@ -37,6 +40,7 @@ function HomeStackNavigator() {
     <Stack.Navigator
       initialRouteName={"MarketDetails"}
       screenOptions={{
+        // ...TransitionPresets.SlideFromLeftIOS,
         headerLeft: () => <HeaderLeft />,
         headerRight: () => <HeaderRight />,
         headerStyle: {

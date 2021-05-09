@@ -12,14 +12,22 @@ export const MarketDetailsContainer = styled.View`
 
 export const MarketSummaryDetailsContainer = styled.View`
   width: ${width - 50}px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   display: flex;
   flex: 1;
+  background-color: ${(props) => props.theme.otherPurple};
+  border-radius: 20px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const StyledAPYContainer = styled.View`
+export const StyledAPYContainer = styled.ScrollView`
   width: ${width}px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   display: flex;
   flex: 2;
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding-top: 30px;
 `;

@@ -6,6 +6,20 @@ import {
   StyledAPYContainer,
 } from "./MarketDetails.styles";
 
+import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.component";
+
+const mockAPYData = [
+  {
+    index: 1,
+  },
+  {
+    index: 2,
+  },
+  {
+    index: 3,
+  },
+];
+
 interface MarketDetailsProps {}
 
 export const MarketDetails = ({ route, navigation }) => {
@@ -14,10 +28,17 @@ export const MarketDetails = ({ route, navigation }) => {
   return (
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
-        <Text>Market Details</Text>
+        <Text style={{ color: "white" }}>Market Details</Text>
       </MarketSummaryDetailsContainer>
-      <StyledAPYContainer>
-        <Text>APY Container</Text>
+      <StyledAPYContainer
+        contentContainerStyle={{
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        {mockAPYData.map((data) => {
+          return <APYDetailRow title={data.index} />;
+        })}
       </StyledAPYContainer>
     </MarketDetailsContainer>
   );
