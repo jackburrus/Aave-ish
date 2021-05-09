@@ -13,6 +13,8 @@ import {
   StyledAPYTitleText,
   StyledPercentageText,
 } from "./APYDetailRow.styles";
+
+import APYChart from "./APYChart";
 interface APYDetailRowProps {
   title: string;
   percentage: number;
@@ -31,9 +33,7 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
         </StyledPercentageContainer>
       </StyledAYPTextContainer>
 
-      <StyledGraphContainer>
-        <Text style={{ color: "white" }}>Graph</Text>
-      </StyledGraphContainer>
+      <StyledGraphContainer>{/* <APYChart /> */}</StyledGraphContainer>
     </APYDetailRowContainer>
   );
 };
