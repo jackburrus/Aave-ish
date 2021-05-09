@@ -10,26 +10,29 @@ import {
   APYDetailRowContainer,
   StyledAPYTitleContainer,
   StyledAYPTextContainer,
+  StyledAPYTitleText,
+  StyledPercentageText,
 } from "./APYDetailRow.styles";
 interface APYDetailRowProps {
   title: string;
+  percentage: number;
 }
 
 export const APYDetailRow = (props: APYDetailRowProps) => {
-  const { title } = props;
+  const { title, percentage } = props;
   return (
     <APYDetailRowContainer>
       <StyledAYPTextContainer>
         <StyledAPYTitleContainer>
-          <Text style={{ color: "white" }}>{title}</Text>
+          <StyledAPYTitleText>{title}</StyledAPYTitleText>
         </StyledAPYTitleContainer>
         <StyledPercentageContainer>
-          <Text>Percentage</Text>
+          <StyledPercentageText>{percentage}</StyledPercentageText>
         </StyledPercentageContainer>
       </StyledAYPTextContainer>
 
       <StyledGraphContainer>
-        <Text>Graph</Text>
+        <Text style={{ color: "white" }}>Graph</Text>
       </StyledGraphContainer>
     </APYDetailRowContainer>
   );

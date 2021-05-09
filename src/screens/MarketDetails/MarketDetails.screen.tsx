@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import {
   MarketDetailsContainer,
   MarketSummaryDetailsContainer,
@@ -11,12 +11,18 @@ import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.compone
 const mockAPYData = [
   {
     index: 1,
+    title: "Deposit APY",
+    percentage: 3.4,
   },
   {
     index: 2,
+    title: "Borrow APY (stable)",
+    percentage: 6.2,
   },
   {
     index: 3,
+    title: "Borrow APY (variable)",
+    percentage: 6.8,
   },
 ];
 
@@ -24,7 +30,7 @@ interface MarketDetailsProps {}
 
 export const MarketDetails = ({ route, navigation }) => {
   // const { marketSize, depositAPY } = route.params.props;
-  const details = { marketSize: "1.3B", depositAPY: 3.4 };
+  // const details = { marketSize: "1.3B", depositAPY: 3.4 };
   return (
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
@@ -37,7 +43,9 @@ export const MarketDetails = ({ route, navigation }) => {
         }}
       >
         {mockAPYData.map((data) => {
-          return <APYDetailRow title={data.index} />;
+          return (
+            <APYDetailRow title={data.title} percentage={data.percentage} />
+          );
         })}
       </StyledAPYContainer>
     </MarketDetailsContainer>
