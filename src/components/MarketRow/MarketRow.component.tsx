@@ -8,6 +8,7 @@ import {
   StyledMarketRowContainer,
   StyledMarketSizeContainer,
   StyledAPYContainer,
+  StyledAPYContainerCustom,
   StyledMarketSizeText,
   StyledMarketRowValue,
 } from "./MarketRow.styles";
@@ -32,6 +33,7 @@ export const MarketRow = (props: MarketRowProps) => {
         </IconContainer>
       </StyledIconContainer>
       <StyledDetailsContainer>
+        {/* <StyledAPYContainerCustom /> */}
         <StyledMarketSizeContainer>
           <StyledMarketSizeText>Market Size</StyledMarketSizeText>
           <StyledMarketRowValue>{marketSize}</StyledMarketRowValue>

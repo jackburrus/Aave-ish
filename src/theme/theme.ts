@@ -6,6 +6,7 @@ declare module "styled-components" {
     secondary: string;
     lightGreen: string;
     lightBlue: string;
+    lightPurple: string;
   }
 }
 
@@ -14,4 +15,5 @@ export const darkTheme: DefaultTheme = {
   secondary: "pink",
   lightBlue: "#E2F2FD",
   lightGreen: "#eafefd",
+  lightPurple: "#ddd3ee",
 };

@@ -9,6 +9,7 @@ export const StyledMarketRowContainer = styled.Pressable`
   height: 100px;
   border-radius: 20px;
   background-color: ${(props) => props.theme.lightGreen};
+
   margin-top: 20px;
   flex-direction: row;
 `;
@@ -61,4 +62,12 @@ export const StyledMarketRowValue = styled.Text`
   font-size: 14px;
   font-family: "Rubik_500Medium";
   opacity: 0.6;
+`;
+
+export const StyledAPYContainerCustom = styled.View`
+  /* border: 1px solid black; */
+  width: 75px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: white;
 `;

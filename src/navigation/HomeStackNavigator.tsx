@@ -35,6 +35,7 @@ function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
+      initialRouteName={"MarketDetails"}
       screenOptions={{
         headerLeft: () => <HeaderLeft />,
         headerRight: () => <HeaderRight />,

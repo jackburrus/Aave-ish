@@ -1,14 +1,24 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { MarketDetailsContainer } from "./MarketDetails.styles";
+import {
+  MarketDetailsContainer,
+  MarketSummaryDetailsContainer,
+  StyledAPYContainer,
+} from "./MarketDetails.styles";
+
 interface MarketDetailsProps {}
 
 export const MarketDetails = ({ route, navigation }) => {
-  const { marketSize, depositAPY } = route.params.props;
+  // const { marketSize, depositAPY } = route.params.props;
+  const details = { marketSize: "1.3B", depositAPY: 3.4 };
   return (
     <MarketDetailsContainer>
-      <Text style={{ color: "white" }}>{marketSize}</Text>
-      <Text style={{ color: "white" }}>{depositAPY}%</Text>
+      <MarketSummaryDetailsContainer>
+        <Text>Market Details</Text>
+      </MarketSummaryDetailsContainer>
+      <StyledAPYContainer>
+        <Text>APY Container</Text>
+      </StyledAPYContainer>
     </MarketDetailsContainer>
   );
 };

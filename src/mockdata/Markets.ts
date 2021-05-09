@@ -4,6 +4,7 @@ export const MarketsData = [
     icon: null,
     marketSize: "892.67M",
     depositAPY: 12.63,
+    price: 3845,
   },
   {
     asset: "XDAI",
