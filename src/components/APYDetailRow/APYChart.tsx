@@ -26,15 +26,27 @@ export const data = [
   { x: 1454198400, y: 2.2 },
 ];
 
-const points = monotoneCubicInterpolation(data)(40);
+const points = monotoneCubicInterpolation({ data, range: 40 });
 
 const APYChart = () => (
-  <View style={{ backgroundColor: "black" }}>
-    <ChartPathProvider data={{ points, smoothingStrategy: "bezier" }}>
-      <ChartPath height={200} stroke="red" width={SIZE} />
-      <ChartDot style={{ backgroundColor: "blue" }} />
+  <View
+    style={{
+      backgroundColor: "black",
+    }}
+  >
+    <ChartPathProvider
+      data={{
+        points,
+        smoothingStrategy: "bezier",
+      }}
+    >
+      <ChartPath height={SIZE / 2} stroke="yellow" width={SIZE} />
+      <ChartDot
+        style={{
+          backgroundColor: "blue",
+        }}
+      />
     </ChartPathProvider>
   </View>
 );
-
 export default APYChart;
