@@ -48,6 +48,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
               key={index.toString()}
               marketSize={market.marketSize}
               depositAPY={market.depositAPY}
+              bgColor={market.cardColor}
             />
           );
         })}

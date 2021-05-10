@@ -22,12 +22,12 @@ export const MarketSummaryDetailsContainer = styled.View`
   align-items: center;
 `;
 
-export const StyledAPYContainer = styled.ScrollView`
+export const StyledAPYContainer = styled.View`
   width: ${width}px;
   /* border: 1px solid white; */
   display: flex;
   flex: 2;
-  /* align-items: center; */
-  /* justify-content: center; */
+  align-items: center;
+  justify-content: center;
   padding-top: 30px;
 `;

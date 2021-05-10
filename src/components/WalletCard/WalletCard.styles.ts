@@ -8,7 +8,10 @@ export const WalletCardContainer = styled.View`
   width: ${width - 50}px;
   height: 150px;
   border-radius: 30px;
-  background-color: ${(props) => props.theme.lightGreen};
+  background-color: #f8f0fe;
+  box-shadow: 3px 4px 0.5px ${(props) => props.theme.lightPurple};
+  /* box-shadow: 0px 5px 0.5px ${(props) => props.theme.otherPurple}; */
+  /* box-shadow: 0px 5px 0px ${(props) => props.theme.lightPurple}; */
 `;
 export const WalletCardTitleContainer = styled.View`
   /* border-top-left-radius: 30px;
