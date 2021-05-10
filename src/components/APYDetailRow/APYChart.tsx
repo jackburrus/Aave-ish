@@ -31,7 +31,7 @@ const points = monotoneCubicInterpolation({ data, range: 40 });
 const APYChart = () => (
   <View
     style={{
-      backgroundColor: "black",
+      backgroundColor: "transparent",
     }}
   >
     <ChartPathProvider
@@ -40,7 +40,7 @@ const APYChart = () => (
         smoothingStrategy: "bezier",
       }}
     >
-      <ChartPath height={SIZE / 2} stroke="yellow" width={SIZE} />
+      <ChartPath height={80} stroke="white" width={SIZE / 2} />
       <ChartDot
         style={{
           backgroundColor: "blue",

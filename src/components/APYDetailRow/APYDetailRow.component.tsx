@@ -33,7 +33,9 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
         </StyledPercentageContainer>
       </StyledAYPTextContainer>
 
-      <StyledGraphContainer>{/* <APYChart /> */}</StyledGraphContainer>
+      <StyledGraphContainer>
+        <APYChart />
+      </StyledGraphContainer>
     </APYDetailRowContainer>
   );
 };

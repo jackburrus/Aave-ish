@@ -36,14 +36,14 @@ export const StyledPercentageContainer = styled.View`
   /* border: 1px solid white; */
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   /* height: 50px;
   width: 50px; */
 `;
 
 export const StyledPercentageText = styled.Text`
-  font-size: 12px;
+  font-size: 28px;
   color: white;
 `;
 
@@ -54,11 +54,12 @@ export const StyledGraphContainer = styled.View`
   height: 100px;
   justify-content: center;
   align-items: center;
+  padding-right: 20px;
 `;
 
 export const StyledAYPTextContainer = styled.View`
   display: flex;
-  flex: 1;
+  flex: 1.5;
 `;
 
 // export const StyledAllAYPTextContainer = styled.View``;
