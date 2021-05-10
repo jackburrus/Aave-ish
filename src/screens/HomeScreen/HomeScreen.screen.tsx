@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { ActionButton } from "../../components/ActionButton/ActionButton.component";
 import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.styles";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
@@ -19,17 +19,23 @@ import { WalletCard } from "../../components/WalletCard/WalletCard.component";
 import { MarketRow } from "../../components/MarketRow/MarketRow.component";
 import { StyledMarketsContainer } from "../../components/MarketRow/MarketRow.styles";
 import { MarketsData } from "../../mockdata/Markets";
+import { ChartContextProvider } from "../../context/ChartContext";
+import { PieChartIcon } from "../../components/WalletCard/PieChartIcon.Component";
+const { width, height } = Dimensions.get("window");
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
   return (
     <HomeContainer>
       <WalletContainer>
-        <WalletCard
-          title={"Deposit Information"}
-          balance={182.307}
-          chart={<PieChartExample />}
-        />
+        <ChartContextProvider>
+          <WalletCard
+            title={"Deposit Information"}
+            balance={182.307}
+            chart={<PieChartExample />}
+          />
+          <PieChartIcon />
+        </ChartContextProvider>
       </WalletContainer>
       <HeaderContainer>
         <HeaderText>New Action</HeaderText>

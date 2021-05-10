@@ -1,29 +1,59 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { PieChart } from "react-native-svg-charts";
+import { ChartContext } from "../../context/ChartContext";
 
-class PieChartExample extends React.PureComponent {
-  render() {
-    const data = [50, 10, 40, 95];
+const PieChartExample = () => {
+  const [activeIndex, setActiveIndex] = useState(1);
+  const { chartIndex, setChartIndex } = useContext(ChartContext);
+  const data = [
+    {
+      key: 1,
+      value: 50,
+      svg: { fill: "#600080" },
+      onPress: () => {
+        setChartIndex(1);
+      },
+      arc: chartIndex === 1 ? { outerRadius: "130%", cornerRadius: 10 } : null,
+    },
+    {
+      key: 2,
+      value: 50,
+      svg: { fill: "#9900cc" },
+      onPress: () => setChartIndex(2),
+      arc: chartIndex === 2 ? { outerRadius: "130%", cornerRadius: 10 } : null,
+      // arc: { outerRadius: "130%", cornerRadius: 10 },
+    },
+    {
+      key: 3,
+      value: 40,
+      svg: { fill: "#c61aff" },
+      onPress: () => setChartIndex(3),
+      arc: chartIndex === 3 ? { outerRadius: "130%", cornerRadius: 10 } : null,
+    },
+    {
+      key: 4,
+      value: 95,
+      svg: { fill: "#d966ff" },
+      onPress: () => setChartIndex(4),
+      arc: chartIndex === 4 ? { outerRadius: "130%", cornerRadius: 10 } : null,
+    },
+    {
+      key: 5,
+      value: 35,
+      svg: { fill: "#ecb3ff" },
+      onPress: () => setChartIndex(5),
+      arc: chartIndex === 5 ? { outerRadius: "130%", cornerRadius: 10 } : null,
+    },
+  ];
 
-    const randomColor = () =>
-      ("#" + ((Math.random() * 0xffffff) << 0).toString(16) + "000000").slice(
-        0,
-        7,
-      );
-
-    const pieData = data
-      .filter((value) => value > 0)
-      .map((value, index) => ({
-        value,
-        svg: {
-          fill: randomColor(),
-          onPress: () => console.log("press", index),
-        },
-        key: `pie-${index}`,
-      }));
-
-    return <PieChart style={{ height: 100, width: 100 }} data={pieData} />;
-  }
-}
+  return (
+    <PieChart
+      style={{ height: 120, width: 120, marginRight: 10 }}
+      outerRadius={"70%"}
+      innerRadius={20}
+      data={data}
+    />
+  );
+};
 
 export default PieChartExample;
