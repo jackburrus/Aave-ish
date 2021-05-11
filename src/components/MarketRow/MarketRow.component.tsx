@@ -1,21 +1,21 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Image, ImageSourcePropType } from "react-native";
 import { IconContainer } from "../ActionButton/ActionButton.styles";
 import {
+  StyledAPYContainer,
   StyledDetailsContainer,
   StyledIconContainer,
   StyledMarketRowContainer,
-  StyledMarketSizeContainer,
-  StyledAPYContainer,
-  StyledAPYContainerCustom,
-  StyledMarketSizeText,
   StyledMarketRowValue,
+  StyledMarketSizeContainer,
+  StyledMarketSizeText,
 } from "./MarketRow.styles";
 interface MarketRowProps {
   marketSize: string;
   depositAPY: number;
   bgColor: string;
+  icon: ImageSourcePropType;
 }
 
 export const MarketRow = (props: MarketRowProps) => {
