@@ -3,13 +3,12 @@ import { PieChart } from "react-native-svg-charts";
 import { ChartContext } from "../../context/ChartContext";
 
 const PieChartExample = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
   const { chartIndex, setChartIndex } = useContext(ChartContext);
   const data = [
     {
       key: 1,
       value: 50,
-      svg: { fill: chartIndex == 1 ? "#8A92B2" : "#600080" },
+      svg: { fill: chartIndex === 1 ? "#8A92B2" : "#600080" },
       onPress: () => {
         setChartIndex(1);
       },
