@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Dimensions } from "react-native";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import Animated, {
   useSharedValue,
   Extrapolate,
@@ -16,6 +16,14 @@ interface PieChartIconProps {}
 
 const { width } = Dimensions.get("window");
 
+const coinImages = [
+  require(`../../assets/icons/Coins/1.png`),
+  require(`../../assets/icons/Coins/2.png`),
+  require(`../../assets/icons/Coins/3.png`),
+  require(`../../assets/icons/Coins/4.png`),
+  require(`../../assets/icons/Coins/5.png`),
+];
+
 export const PieChartIcon = (props: PieChartIconProps) => {
   const { chartIndex } = useContext(ChartContext);
   const iconOpacity = useSharedValue(0);
@@ -23,7 +31,7 @@ export const PieChartIcon = (props: PieChartIconProps) => {
   useEffect(() => {
     opacityProgress.value = 0;
     opacityProgress.value = withTiming(1, {
-      duration: 650,
+      duration: 2000,
       easing: Easing.inOut(Easing.ease),
     });
     console.log("ran index");
@@ -35,9 +43,12 @@ export const PieChartIcon = (props: PieChartIconProps) => {
   }));
   return (
     <Animated.View
-      style={[{ position: "absolute", right: width / 4 + 2 }, animatedStyle]}
+      style={[{ position: "absolute", right: width / 4.4 }, animatedStyle]}
     >
-      <Text>{chartIndex}</Text>
+      <Image
+        style={{ width: 30, height: 30 }}
+        source={coinImages[chartIndex - 1]}
+      />
     </Animated.View>
   );
 };
