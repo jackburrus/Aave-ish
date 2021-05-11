@@ -46,7 +46,7 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
       </StyledAYPTextContainer>
 
       <StyledGraphContainer>
-        <APYChart />
+        <APYChart type={title} subtitle={subtitle} />
       </StyledGraphContainer>
     </APYDetailRowContainer>
   );
