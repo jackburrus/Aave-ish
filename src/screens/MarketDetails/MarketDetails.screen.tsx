@@ -5,7 +5,7 @@ import {
   MarketSummaryDetailsContainer,
   StyledAPYContainer,
 } from "./MarketDetails.styles";
-
+import MarketDetailsPieChart from "./MarketDetailsPieChart";
 import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.component";
 
 const mockAPYData = [
@@ -34,7 +34,7 @@ export const MarketDetails = ({ route, navigation }) => {
   return (
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
-        <Text style={{ color: "white" }}>Market Details</Text>
+        <MarketDetailsPieChart />
       </MarketSummaryDetailsContainer>
       <StyledAPYContainer
         contentContainerStyle={{
