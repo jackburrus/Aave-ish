@@ -42,9 +42,13 @@ export const MarketDetails = ({ route, navigation }) => {
           alignItems: "center",
         }}
       >
-        {mockAPYData.map((data) => {
+        {mockAPYData.map((data, index) => {
           return (
-            <APYDetailRow title={data.title} percentage={data.percentage} />
+            <APYDetailRow
+              key={index}
+              title={data.title}
+              percentage={data.percentage}
+            />
           );
         })}
       </StyledAPYContainer>
