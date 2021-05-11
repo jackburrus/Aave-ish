@@ -10,6 +10,7 @@ export const WalletCardContainer = styled.View`
   border-radius: 30px;
   background-color: #f8f0fe;
   box-shadow: 3px 4px 0.5px ${(props) => props.theme.lightPurple};
+  /* border: 1px solid black; */
   /* box-shadow: 0px 5px 0.5px ${(props) => props.theme.otherPurple}; */
   /* box-shadow: 0px 5px 0px ${(props) => props.theme.lightPurple}; */
 `;
@@ -18,7 +19,6 @@ export const WalletCardTitleContainer = styled.View`
   border-top-right-radius: 30px; */
   display: flex;
   flex: 1;
-  /* border: 1px solid black; */
 
   justify-content: flex-end;
   padding-bottom: 10px;
@@ -26,7 +26,7 @@ export const WalletCardTitleContainer = styled.View`
 `;
 export const WalletCardTitleText = styled.Text`
   color: ${(props) => props.theme.main};
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Rubik_500Medium";
   margin-top: 10px;
 `;
@@ -41,12 +41,12 @@ export const WalletBalanceContainer = styled.View`
 
 export const WalletBalanceText = styled.Text`
   color: ${(props) => props.theme.main};
-  font-size: 20px;
+  font-size: 24px;
   font-family: "Rubik_500Medium";
 `;
 export const ApproximateText = styled.Text`
   color: ${(props) => props.theme.main};
-  font-size: 6px;
+  font-size: 8px;
   font-family: "Rubik_500Medium";
   opacity: 0.8;
   padding-left: 5px;

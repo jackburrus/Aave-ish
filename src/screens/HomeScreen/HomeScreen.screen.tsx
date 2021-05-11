@@ -31,7 +31,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         <ChartContextProvider>
           <WalletCard
             title={"Deposit Information"}
-            balance={182.307}
+            balance={909.08}
             chart={<PieChartExample />}
           />
           <PieChartIcon />
