@@ -1,13 +1,15 @@
 import React from "react";
-import { Dimensions, View } from "react-native";
+import { Dimensions, View, Text } from "react-native";
 import {
   ChartDot,
   ChartPath,
   ChartPathProvider,
   monotoneCubicInterpolation,
+  useChartData,
+  ChartYLabel,
 } from "@rainbow-me/animated-charts";
 import { useTheme } from "styled-components";
-
+import { APYChartLabel } from "./APYChartLabel";
 export const { width: SIZE } = Dimensions.get("window");
 
 export const data = [
@@ -28,9 +30,14 @@ export const data = [
 ];
 
 const points = monotoneCubicInterpolation({ data, range: 40 });
-
+const getY = (value) => {
+  "worklet";
+  console.log(value);
+  return `Y - ${value}`;
+};
 const APYChart = () => {
   const { main, liquidGreen } = useTheme();
+
   return (
     <View
       style={{
@@ -49,6 +56,7 @@ const APYChart = () => {
             backgroundColor: main,
           }}
         />
+        <ChartYLabel format={getY} />
       </ChartPathProvider>
     </View>
   );

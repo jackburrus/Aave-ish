@@ -15,6 +15,8 @@ import {
   StyledAPYTitleSubtext,
 } from "./APYDetailRow.styles";
 
+import { APYChartLabel } from "./APYChartLabel";
+
 import APYChart from "./APYChart";
 interface APYDetailRowProps {
   title: string;
@@ -39,7 +41,7 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
           </StyledAPYTitleSubtext>
         </StyledAPYTitleContainer>
         <StyledPercentageContainer>
-          <StyledPercentageText>{percentage}</StyledPercentageText>
+          <APYChartLabel>{percentage}</APYChartLabel>
         </StyledPercentageContainer>
       </StyledAYPTextContainer>
 
