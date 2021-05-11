@@ -15,7 +15,7 @@ export const MarketSummaryDetailsContainer = styled.View`
   /* border: 1px solid white; */
   display: flex;
   flex: 1;
-  background-color: ${(props) => props.theme.otherPurple};
+  background-color: ${(props) => props.theme.lightBlue};
   border-radius: 20px;
   margin-top: 50px;
   justify-content: center;

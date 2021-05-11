@@ -6,6 +6,7 @@ import {
   StyledAPYContainer,
 } from "./MarketDetails.styles";
 import MarketDetailsPieChart from "./MarketDetailsPieChart";
+import { MarketDetailsText } from "./MarketDetailsText";
 import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.component";
 
 const mockAPYData = [
@@ -35,6 +36,7 @@ export const MarketDetails = ({ route, navigation }) => {
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
         <MarketDetailsPieChart />
+        <MarketDetailsText />
       </MarketSummaryDetailsContainer>
       <StyledAPYContainer
         contentContainerStyle={{
@@ -42,7 +44,7 @@ export const MarketDetails = ({ route, navigation }) => {
           alignItems: "center",
         }}
       >
-        {mockAPYData.map((data, index) => {
+        {/* {mockAPYData.map((data, index) => {
           return (
             <APYDetailRow
               key={index}
@@ -50,7 +52,7 @@ export const MarketDetails = ({ route, navigation }) => {
               percentage={data.percentage}
             />
           );
-        })}
+        })} */}
       </StyledAPYContainer>
     </MarketDetailsContainer>
   );

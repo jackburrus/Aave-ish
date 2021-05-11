@@ -7,23 +7,28 @@ const MarketDetailsPieChart = () => {
   const data = [
     {
       key: 1,
-      value: 20,
-      svg: { fill: liquidGreen },
+      value: 80,
+      svg: { fill: borrowedRed },
       arc: { cornerRadius: 10 },
     },
     {
       key: 2,
-      value: 80,
-      svg: { fill: borrowedRed },
+      value: 20,
+      svg: { fill: liquidGreen },
       arc: { cornerRadius: 10 },
     },
   ];
 
   return (
     <PieChart
-      style={{ height: 200, width: 200 }}
+      style={{
+        height: 200,
+        width: 200,
+        // borderWidth: 1,
+        flex: 3,
+      }}
       outerRadius={"70%"}
-      innerRadius={50}
+      innerRadius={45}
       data={data}
     />
   );
