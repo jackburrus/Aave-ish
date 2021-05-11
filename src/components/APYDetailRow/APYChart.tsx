@@ -46,7 +46,7 @@ const APYChart = () => {
         <ChartPath height={80} stroke={main} width={SIZE / 2} />
         <ChartDot
           style={{
-            backgroundColor: liquidGreen,
+            backgroundColor: main,
           }}
         />
       </ChartPathProvider>
