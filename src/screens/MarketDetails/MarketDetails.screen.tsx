@@ -91,7 +91,8 @@ export const MarketDetails = ({ route, navigation }) => {
       </StyledAPYContainer>
       <View
         style={{
-          borderWidth: 1,
+          // borderWidth: 1,
+          borderRadius: 20,
           position: "absolute",
           bottom: 35,
           width: device.window.width - 50,
@@ -101,7 +102,7 @@ export const MarketDetails = ({ route, navigation }) => {
           // alignItems: "space-around",
           // marginLeft: 50,
           // marginRight: 50,
-          height: 100,
+          height: 90,
         }}
       >
         {ExtraDetailsData.map((data, index) => {
