@@ -23,11 +23,11 @@ export const MarketSummaryDetailsContainer = styled.View`
 `;
 
 export const StyledAPYContainer = styled.View`
-  width: ${width}px;
+  width: ${width - 50}px;
   /* border: 1px solid white; */
   display: flex;
   flex: 2;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding-top: 30px;
 `;

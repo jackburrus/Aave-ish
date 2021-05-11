@@ -14,16 +14,21 @@ const mockAPYData = [
     index: 1,
     title: "Deposit APY",
     percentage: 3.4,
+    bgColor: "#FAECE0",
   },
   {
     index: 2,
-    title: "Borrow APY (stable)",
+    title: "Borrow APY ",
+    subtitle: "(stable)",
     percentage: 6.2,
+    bgColor: "#CFCAF1",
   },
   {
     index: 3,
-    title: "Borrow APY (variable)",
+    title: "Borrow APY ",
+    subtitle: "(variable)",
     percentage: 6.8,
+    bgColor: "#CBD9F0",
   },
 ];
 
@@ -38,21 +43,18 @@ export const MarketDetails = ({ route, navigation }) => {
         <MarketDetailsPieChart />
         <MarketDetailsText />
       </MarketSummaryDetailsContainer>
-      <StyledAPYContainer
-        contentContainerStyle={{
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
-      >
-        {/* {mockAPYData.map((data, index) => {
+      <StyledAPYContainer>
+        {mockAPYData.map((data, index) => {
           return (
             <APYDetailRow
               key={index}
               title={data.title}
+              subtitle={data.subtitle}
               percentage={data.percentage}
+              bgColor={data.bgColor}
             />
           );
-        })} */}
+        })}
       </StyledAPYContainer>
     </MarketDetailsContainer>
   );

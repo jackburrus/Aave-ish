@@ -12,21 +12,31 @@ import {
   StyledAYPTextContainer,
   StyledAPYTitleText,
   StyledPercentageText,
+  StyledAPYTitleSubtext,
 } from "./APYDetailRow.styles";
 
 import APYChart from "./APYChart";
 interface APYDetailRowProps {
   title: string;
+  subtitle: string | undefined;
   percentage: number;
+  bgColor: string;
 }
 
 export const APYDetailRow = (props: APYDetailRowProps) => {
-  const { title, percentage } = props;
+  const { title, percentage, bgColor, subtitle } = props;
   return (
-    <APYDetailRowContainer>
+    <APYDetailRowContainer style={{ backgroundColor: bgColor }}>
       <StyledAYPTextContainer>
         <StyledAPYTitleContainer>
-          <StyledAPYTitleText>{title}</StyledAPYTitleText>
+          <StyledAPYTitleText
+            style={title === "Deposit APY" ? { marginTop: 20 } : null}
+          >
+            {title}
+          </StyledAPYTitleText>
+          <StyledAPYTitleSubtext>
+            {subtitle ? subtitle : null}
+          </StyledAPYTitleSubtext>
         </StyledAPYTitleContainer>
         <StyledPercentageContainer>
           <StyledPercentageText>{percentage}</StyledPercentageText>

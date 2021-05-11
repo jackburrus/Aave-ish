@@ -6,6 +6,7 @@ import {
   ChartPathProvider,
   monotoneCubicInterpolation,
 } from "@rainbow-me/animated-charts";
+import { useTheme } from "styled-components";
 
 export const { width: SIZE } = Dimensions.get("window");
 
@@ -28,25 +29,28 @@ export const data = [
 
 const points = monotoneCubicInterpolation({ data, range: 40 });
 
-const APYChart = () => (
-  <View
-    style={{
-      backgroundColor: "transparent",
-    }}
-  >
-    <ChartPathProvider
-      data={{
-        points,
-        smoothingStrategy: "bezier",
+const APYChart = () => {
+  const { main, liquidGreen } = useTheme();
+  return (
+    <View
+      style={{
+        backgroundColor: "transparent",
       }}
     >
-      <ChartPath height={80} stroke="white" width={SIZE / 2} />
-      <ChartDot
-        style={{
-          backgroundColor: "blue",
+      <ChartPathProvider
+        data={{
+          points,
+          smoothingStrategy: "bezier",
         }}
-      />
-    </ChartPathProvider>
-  </View>
-);
+      >
+        <ChartPath height={80} stroke={main} width={SIZE / 2} />
+        <ChartDot
+          style={{
+            backgroundColor: liquidGreen,
+          }}
+        />
+      </ChartPathProvider>
+    </View>
+  );
+};
 export default APYChart;

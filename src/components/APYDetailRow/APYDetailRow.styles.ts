@@ -13,7 +13,6 @@ export const APYDetailRowContainer = styled.Pressable`
   margin-bottom: 20px;
   border-radius: 20px;
   flex-direction: row;
-  background-color: ${(props) => props.theme.darkPurple};
   /* margin-top: 10px; */
 `;
 
@@ -29,7 +28,19 @@ export const StyledAPYTitleContainer = styled.View`
 
 export const StyledAPYTitleText = styled.Text`
   font-size: 16px;
-  color: white;
+  color: ${(props) => props.theme.main};
+  font-family: "Rubik_500Medium";
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 10px;
+  /* border: 1px solid; */
+`;
+
+export const StyledAPYTitleSubtext = styled.Text`
+  font-size: 12px;
+  color: ${(props) => props.theme.main};
+  font-family: "Rubik_500Medium";
+  opacity: 0.6;
 `;
 
 export const StyledPercentageContainer = styled.View`
@@ -43,8 +54,12 @@ export const StyledPercentageContainer = styled.View`
 `;
 
 export const StyledPercentageText = styled.Text`
-  font-size: 28px;
-  color: white;
+  font-size: 24px;
+
+  color: ${(props) => props.theme.main};
+  font-family: "Rubik_500Medium";
+  opacity: 0.8;
+  margin-top: 10px;
 `;
 
 export const StyledGraphContainer = styled.View`
