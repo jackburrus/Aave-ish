@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { IconContainer } from "../ActionButton/ActionButton.styles";
 import {
   StyledDetailsContainer,
@@ -19,7 +19,7 @@ interface MarketRowProps {
 }
 
 export const MarketRow = (props: MarketRowProps) => {
-  const { marketSize, depositAPY, bgColor } = props;
+  const { marketSize, depositAPY, bgColor, icon } = props;
   const navigation = useNavigation();
   return (
     <StyledMarketRowContainer
@@ -31,7 +31,7 @@ export const MarketRow = (props: MarketRowProps) => {
           style={{ width: 70, height: 70 }}
           shadowColor={"rgba(88, 90, 88, 0.6)"}
         >
-          <Text>Icon</Text>
+          <Image source={icon} style={{ width: 40, height: 40 }} />
         </IconContainer>
       </StyledIconContainer>
       <StyledDetailsContainer>
