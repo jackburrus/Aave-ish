@@ -8,6 +8,7 @@ import {
 import MarketDetailsPieChart from "./MarketDetailsPieChart";
 import { MarketDetailsText } from "./MarketDetailsText";
 import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.component";
+import { device } from "../../constants/index";
 
 const mockAPYData = [
   {
@@ -56,6 +57,19 @@ export const MarketDetails = ({ route, navigation }) => {
           );
         })}
       </StyledAPYContainer>
+      <View
+        style={{
+          borderWidth: 1,
+          position: "absolute",
+          bottom: 35,
+          width: device.window.width - 50,
+          // marginLeft: 50,
+          // marginRight: 50,
+          height: 100,
+        }}
+      >
+        <Text>Other Details</Text>
+      </View>
     </MarketDetailsContainer>
   );
 };

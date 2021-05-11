@@ -12,15 +12,16 @@ import { useTheme } from "styled-components";
 import { View } from "react-native";
 import { MarketDetails } from "../screens/MarketDetails/MarketDetails.screen";
 
+import { Avatar } from "react-native-paper";
+
 const Stack = createStackNavigator();
 
-//Hamburger menu
 const HeaderLeft = () => {
   const navigation = useNavigation();
 
   return (
     <AaveIcon
-      style={{ marginLeft: 20 }}
+      style={{ marginLeft: 20, marginBottom: 5 }}
       onPress={() => {
         navigation.navigate("Home");
       }}
@@ -28,9 +29,13 @@ const HeaderLeft = () => {
   );
 };
 
-const HeaderRight = () => {
+export const HeaderRight = () => {
   return (
-    <View style={{ width: 50, height: 50, borderWidth: 1, marginRight: 20 }} />
+    <Avatar.Image
+      size={48}
+      style={{ marginRight: 20 }}
+      source={require("../assets/avatar.png")}
+    />
   );
 };
 
