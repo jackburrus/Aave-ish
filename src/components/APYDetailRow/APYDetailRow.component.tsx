@@ -41,7 +41,7 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
           </StyledAPYTitleSubtext>
         </StyledAPYTitleContainer>
         <StyledPercentageContainer>
-          <APYChartLabel>{percentage}</APYChartLabel>
+          {/* <APYChartLabel>{percentage}</APYChartLabel> */}
         </StyledPercentageContainer>
       </StyledAYPTextContainer>
 

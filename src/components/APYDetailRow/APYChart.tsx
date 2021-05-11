@@ -87,7 +87,8 @@ const getData = (type, subtitle) => {
 const getY = (value) => {
   "worklet";
   console.log(value);
-  return `Y - ${value}`;
+
+  return `${value.substring(0, 3)} %`;
 };
 const APYChart = (props) => {
   const { main, liquidGreen } = useTheme();
@@ -112,9 +113,27 @@ const APYChart = (props) => {
             backgroundColor: main,
           }}
         />
-        <ChartYLabel format={getY} />
+        <ChartYLabel
+          style={{
+            position: "absolute",
+            top: 40,
+            left: -90,
+            fontSize: 24,
+            fontFamily: "Rubik_500Medium",
+            color: main,
+            opacity: 0.8,
+          }}
+          format={getY}
+        />
       </ChartPathProvider>
     </View>
   );
 };
 export default APYChart;
+
+// font-size: 24px;
+
+//   color: ${(props) => props.theme.main};
+//   font-family: "Rubik_500Medium";
+//   opacity: 0.8;
+//   margin-top: 10px;
