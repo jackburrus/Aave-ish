@@ -46,7 +46,11 @@ export const APYDetailRow = (props: APYDetailRowProps) => {
       </StyledAYPTextContainer>
 
       <StyledGraphContainer>
-        <APYChart type={title} subtitle={subtitle} />
+        <APYChart
+          type={title}
+          subtitle={subtitle}
+          defaultValue={percentage.toString()}
+        />
       </StyledGraphContainer>
     </APYDetailRowContainer>
   );

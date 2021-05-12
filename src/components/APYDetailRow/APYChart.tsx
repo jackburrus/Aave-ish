@@ -84,14 +84,14 @@ const getData = (type, subtitle) => {
   }
 };
 
-const getY = (value) => {
+const getY = (value, defaultValue) => {
   "worklet";
 
-  return `${value.substring(0, 4)} %`;
+  return !value ? defaultValue : `${value.substring(0, 4)} %`;
 };
 const APYChart = (props) => {
   const { main, liquidGreen } = useTheme();
-  const { type, subtitle } = props;
+  const { type, subtitle, defaultValue } = props;
   const data = getData(type, subtitle);
   const points = monotoneCubicInterpolation({ data, range: 40 });
   return (
@@ -122,7 +122,7 @@ const APYChart = (props) => {
             color: main,
             opacity: 0.8,
           }}
-          format={getY}
+          format={(value) => getY(value, defaultValue)}
         />
       </ChartPathProvider>
     </View>
