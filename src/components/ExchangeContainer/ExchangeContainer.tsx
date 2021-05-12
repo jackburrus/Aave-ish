@@ -111,7 +111,7 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
           contentStyle={{ backgroundColor: "#cfc1e7" }}
           anchor={
             <AmountAndCoinContainer>
-              <AmountText>4.237</AmountText>
+              <AmountText>0.000</AmountText>
               <CoinContainer onPress={openMenu}>
                 <Image
                   source={MarketsData[activeCoin].icon}
