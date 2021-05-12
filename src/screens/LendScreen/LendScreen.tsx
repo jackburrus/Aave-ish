@@ -5,6 +5,9 @@ import { APYCard } from "./APYCard";
 import { HealthFactorCard } from "./HealthFactorCard";
 import styled, { useTheme } from "styled-components/native";
 import { EvilIcons } from "@expo/vector-icons";
+import SwipeButton from "rn-swipe-button";
+import lend from "../../assets/Lend.png";
+import { Entypo } from "@expo/vector-icons";
 
 interface LendScreenProps {}
 
@@ -60,7 +63,11 @@ const StyledLendText = styled.Text`
 `;
 
 export const LendScreen = (props: LendScreenProps) => {
-  const { main } = useTheme();
+  const { main, lightPurple } = useTheme();
+
+  const ArrowIcon = () => (
+    <Entypo name="arrow-with-circle-right" size={64} color={lightPurple} />
+  );
   return (
     <LendScreenContainer>
       <ExchangeContainer />
@@ -70,10 +77,30 @@ export const LendScreen = (props: LendScreenProps) => {
           <APYCard />
         </CardContainer>
         <LendButtonContainer>
-          <LendButton onPress={() => Alert.alert("Submitted deposit.")}>
+          {/* <LendButton onPress={() => Alert.alert("Submitted deposit.")}>
             <EvilIcons name="arrow-up" size={42} color={main} />
             <StyledLendText>Lend</StyledLendText>
-          </LendButton>
+          </LendButton> */}
+          <SwipeButton
+            thumbIconBackgroundColor="transparent"
+            // thumbIconImageSource={ArrowIcon}
+            thum
+            thumbIconComponent={ArrowIcon}
+            railBackgroundColor="rgba(255, 255, 255, 0.2)"
+            railBorderColor="transparent"
+            titleColor="#ffffff"
+            thumbIconBorderColor="transparent"
+            // title={"Lend"}
+            height={70}
+            width={350}
+            railStyles={{
+              backgroundColor: "rgba(255, 255, 255, 0)",
+              borderColor: "transparent",
+            }}
+            onSwipeStart={() => console.log("Swipe started!")}
+            onSwipeFail={() => console.log("Incomplete swipe!")}
+            onSwipeSuccess={() => Alert.alert("Submitted!")}
+          />
         </LendButtonContainer>
       </View>
     </LendScreenContainer>
