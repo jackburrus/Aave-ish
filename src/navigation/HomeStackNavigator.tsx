@@ -43,7 +43,7 @@ function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
-      // initialRouteName={"MarketDetails"}
+      initialRouteName={"Lend"}
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerLeft: () => <HeaderLeft />,
