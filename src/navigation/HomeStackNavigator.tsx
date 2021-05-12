@@ -4,7 +4,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
-import { LendScreen } from "../screens/LendScreen";
+import { LendScreen } from "../screens/LendScreen/LendScreen";
 import { BorrowScreen } from "../screens/BorrowScreen";
 import AaveIcon from "../assets/icons/AaveIcon";
 import { useNavigation } from "@react-navigation/native";

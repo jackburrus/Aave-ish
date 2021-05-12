@@ -12,7 +12,8 @@ const StyledExchangeContainer = styled.View`
   /* height: ${height / 0.2}px; */
   height: 400px;
   width: ${width - 30}px;
-
+  display: flex;
+  flex: 1;
   border-radius: 30px;
   background-color: #f8f0fe;
   box-shadow: 4px 5px 0.5px ${(props) => props.theme.lightPurple};
@@ -55,9 +56,33 @@ const StyledAssetText = styled.Text`
   font-family: "Rubik_500Medium";
 `;
 
-const StyledModal = styled(Modal)`
-  background-color: white;
-  padding: 20px;
+const StyledSubText = styled.Text`
+  color: ${(props) => props.theme.main};
+  opacity: 0.5;
+  font-size: 18px;
+  font-family: "Rubik_500Medium";
+  margin-top: 30px;
+  margin-left: 30px;
+`;
+
+const StyledPortfolioContainer = styled.View`
+  margin: 20px;
+  height: 75px;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding-left: 20px;
+  flex-direction: row;
+  border: 1px solid rgba(10.6, 11.4, 35.7, 0.2);
+  border-radius: 5px;
+`;
+
+const StyledPortfolioAmount = styled.Text`
+  color: ${(props) => props.theme.main};
+  opacity: 0.5;
+  font-size: 18px;
+  font-family: "Rubik_500Medium";
+
+  margin-left: 50px;
 `;
 
 export const ExchangeContainer = (props: ExchangeContainerProps) => {
@@ -122,31 +147,17 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
             );
           })}
         </Menu>
+        <Divider style={{ marginRight: 20, marginLeft: 20 }} />
+        <StyledSubText>Your Portfolio</StyledSubText>
+        <StyledPortfolioContainer>
+          <Image
+            source={MarketsData[activeCoin].icon}
+            style={{ width: 30, height: 30, marginRight: 10 }}
+          />
+          <StyledAssetText>{MarketsData[activeCoin].asset}</StyledAssetText>
+          <StyledPortfolioAmount>$100,432.49</StyledPortfolioAmount>
+        </StyledPortfolioContainer>
       </StyledExchangeContainer>
-      <Portal>
-        {/* <Modal
-          visible={visible}
-          onDismiss={hideModal}
-          contentContainerStyle={{
-            backgroundColor: "white",
-            margin: 20,
-            padding: 20,
-            height: 500,
-            borderRadius: 20,
-            marginBottom: 100,
-          }}
-        >
-          <Text>Example Modal. Click outside this area to dismiss.</Text>
-        </Modal> */}
-      </Portal>
-
-      <View
-        style={{
-          paddingTop: 50,
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      ></View>
     </Provider>
   );
 };
