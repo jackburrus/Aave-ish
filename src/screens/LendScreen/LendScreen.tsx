@@ -54,7 +54,7 @@ const LendButton = styled.Pressable`
 `;
 const StyledLendText = styled.Text`
   color: ${(props) => props.theme.main};
-  font-size: 24px;
+  font-size: 28px;
   font-family: "Rubik_500Medium";
   opacity: 0.8;
 `;
@@ -71,8 +71,8 @@ export const LendScreen = (props: LendScreenProps) => {
         </CardContainer>
         <LendButtonContainer>
           <LendButton onPress={() => Alert.alert("Submitted deposit.")}>
+            <EvilIcons name="arrow-up" size={42} color={main} />
             <StyledLendText>Lend</StyledLendText>
-            <EvilIcons name="arrow-up" size={32} color={main} />
           </LendButton>
         </LendButtonContainer>
       </View>
