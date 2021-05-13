@@ -24,7 +24,7 @@ import { PieChartIcon } from "../../components/WalletCard/PieChartIcon.Component
 const { width, height } = Dimensions.get("window");
 interface HomeScreenProps {}
 
-export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
+export const HomeScreen = (props: HomeScreenProps) => {
   return (
     <HomeContainer>
       <WalletContainer>
@@ -56,6 +56,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
               depositAPY={market.depositAPY}
               bgColor={market.cardColor}
               icon={market.icon}
+              asset={market.asset}
             />
           );
         })}

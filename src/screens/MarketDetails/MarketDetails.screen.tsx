@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Image,
+  Dimensions,
+} from "react-native";
 import {
   MarketDetailsContainer,
   MarketSummaryDetailsContainer,
@@ -67,13 +74,25 @@ const ExtraDetailsData = [
     detail: null,
   },
 ];
+const { width, height } = Dimensions.get("window");
 
 export const MarketDetails = ({ route, navigation }) => {
-  // const { marketSize, depositAPY } = route.params.props;
+  const { marketSize, depositAPY, icon, asset } = route.params.props;
+
   // const details = { marketSize: "1.3B", depositAPY: 3.4 };
   return (
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
+        {/* <Image
+          source={icon}
+          style={{
+            width: 30,
+            height: 30,
+            position: "absolute",
+            left: 20,
+            top: 20,
+          }}
+        /> */}
         <MarketDetailsPieChart />
         <MarketDetailsText />
       </MarketSummaryDetailsContainer>

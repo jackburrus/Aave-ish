@@ -16,15 +16,20 @@ interface MarketRowProps {
   depositAPY: number;
   bgColor: string;
   icon: ImageSourcePropType;
+  asset: string;
 }
 
 export const MarketRow = (props: MarketRowProps) => {
-  const { marketSize, depositAPY, bgColor, icon } = props;
+  const { marketSize, depositAPY, bgColor, icon, asset } = props;
   const navigation = useNavigation();
+
   return (
     <StyledMarketRowContainer
       style={{ backgroundColor: bgColor }}
-      onPress={() => navigation.navigate("MarketDetails", { props })}
+      onPress={() => {
+        // navigation.setParams({ title: asset });
+        navigation.navigate("MarketDetails", { props });
+      }}
     >
       <StyledIconContainer>
         <IconContainer

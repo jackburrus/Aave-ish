@@ -43,7 +43,7 @@ function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
-      initialRouteName={"Borrow"}
+      // initialRouteName={"Borrow"}
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerLeft: () => <HeaderLeft />,
@@ -52,13 +52,35 @@ function HomeStackNavigator() {
           backgroundColor: theme.main,
           shadowColor: "transparent",
         },
-        title: "",
       }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Deposit" component={LendScreen} />
-      <Stack.Screen name="Borrow" component={BorrowScreen} />
-      <Stack.Screen name="MarketDetails" component={MarketDetails} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: "" }}
+      />
+      <Stack.Screen
+        name="Deposit"
+        component={LendScreen}
+        options={{ title: "" }}
+      />
+      <Stack.Screen
+        name="Borrow"
+        component={BorrowScreen}
+        options={{ title: "" }}
+      />
+      <Stack.Screen
+        name="MarketDetails"
+        component={MarketDetails}
+        options={({ route }) => ({
+          title: route.params.props.asset,
+          headerTitleStyle: {
+            color: theme.lightPurple,
+            fontFamily: "Rubik_500Medium",
+            fontSize: 18,
+          },
+        })}
+      />
     </Stack.Navigator>
   );
 }
