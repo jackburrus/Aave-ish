@@ -83,7 +83,7 @@ const APYChart = (props) => {
       : `${value.substring(0, 4)} %`;
   };
 
-  const getX = (value) => {
+  const getX = (value: string | null) => {
     "worklet";
     if (value === "") {
       return "Jan 17";
