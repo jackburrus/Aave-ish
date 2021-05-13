@@ -11,6 +11,7 @@ declare module "styled-components" {
     lightBlueHighlight: string;
     lightPurple: string;
     darkPurple: string;
+    menuPurple: string;
     darkBackground: string;
     pink: string;
     otherPurple: string;
@@ -30,6 +31,7 @@ export const darkTheme: DefaultTheme = {
   lightGreenHighlight: "rgba(108, 218, 176, 0.6)",
   lightPurple: "#ddd3ee",
   darkPurple: "#472A64",
+  menuPurple: "#cfc1e7",
   otherPurple: "	#7a49a5",
   darkBackground: "#281C40",
   pink: "#f5b0f7",

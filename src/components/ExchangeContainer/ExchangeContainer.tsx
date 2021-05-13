@@ -99,7 +99,7 @@ interface ExchangeContainerProps {
 
 export const ExchangeContainer = (props: ExchangeContainerProps) => {
   const { type } = props;
-  const { main, lightPurple, greyish, darkPurple } = useTheme();
+  const { main, lightPurple, greyish, darkPurple, menuPurple } = useTheme();
   const [visible, setVisible] = React.useState(false);
   const [activeCoin, setActiveCoin] = useState(0);
   const [amount, onChangeAmount] = useState(null);
@@ -123,7 +123,7 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
               marginLeft: 20,
               width: width - 70,
             }}
-            contentStyle={{ backgroundColor: "#cfc1e7" }}
+            contentStyle={{ backgroundColor: menuPurple }}
             anchor={
               <AmountAndCoinContainer>
                 <AmountTextInput
