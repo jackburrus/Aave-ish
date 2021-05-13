@@ -34,7 +34,7 @@ export const PieChartIcon = (props: PieChartIconProps) => {
       duration: 2000,
       easing: Easing.inOut(Easing.ease),
     });
-    console.log("ran index");
+    // console.log("ran index");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chartIndex]);
 
