@@ -103,7 +103,7 @@ const APYChart = (props) => {
   const getX = (value) => {
     "worklet";
     if (value === "") {
-      return "Jan";
+      return "Jan 17";
     }
     const monthNames = [
       "Jan",
@@ -160,7 +160,18 @@ const APYChart = (props) => {
           }}
           format={getY}
         />
-        <ChartXLabel format={getX} />
+        <ChartXLabel
+          format={getX}
+          style={{
+            position: "absolute",
+            bottom: 10,
+            right: 20,
+            fontSize: 12,
+            fontFamily: "Rubik_500Medium",
+            color: main,
+            opacity: 0.8,
+          }}
+        />
       </ChartPathProvider>
     </View>
   );
