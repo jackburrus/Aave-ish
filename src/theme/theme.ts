@@ -6,7 +6,9 @@ declare module "styled-components" {
     darkerMain: string;
     secondary: string;
     lightGreen: string;
+    lightGreenHighlight: string;
     lightBlue: string;
+    lightBlueHighlight: string;
     lightPurple: string;
     darkPurple: string;
     darkBackground: string;
@@ -23,7 +25,9 @@ export const darkTheme: DefaultTheme = {
   darkerMain: "#151748",
   secondary: "pink",
   lightBlue: "#E2F2FD",
+  lightBlueHighlight: "rgba(161, 244, 255, 0.6)",
   lightGreen: "#eafefd",
+  lightGreenHighlight: "rgba(108, 218, 176, 0.6)",
   lightPurple: "#ddd3ee",
   darkPurple: "#472A64",
   otherPurple: "	#7a49a5",

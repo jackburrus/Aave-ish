@@ -7,6 +7,7 @@ import {
 } from "./ActionButton.styles";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import { useNavigation } from "@react-navigation/native";
+import { useTheme } from "styled-components";
 
 interface ActionButtonProps {
   title: string;
@@ -18,19 +19,23 @@ interface ActionButtonProps {
 export const ActionButton = (props: ActionButtonProps) => {
   const { title, icon } = props;
   const navigation = useNavigation();
+  const {
+    lightBlue,
+    lightBlueHighlight,
+    lightGreen,
+    lightGreenHighlight,
+  } = useTheme();
   return (
     <ActionButtonContainer
       onPress={() =>
         navigation.navigate(title === "Deposit" ? "Deposit" : "Borrow")
       }
-      buttonColor={title === "Borrow" ? "#E2F2FD" : "#eafefd"}
+      buttonColor={title === "Borrow" ? lightBlue : lightGreen}
     >
       <StyledButtonText>{title}</StyledButtonText>
       <IconContainer
         shadowColor={
-          title === "Borrow"
-            ? "rgba(161, 244, 255, 0.6)"
-            : "rgba(108, 218, 176, 0.6)"
+          title === "Borrow" ? lightBlueHighlight : lightGreenHighlight
         }
       >
         {icon}
