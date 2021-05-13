@@ -69,18 +69,6 @@ const getData = (type, subtitle) => {
   }
 };
 
-const getXLabel = (xv) => {
-  switch (xv) {
-    case 1453075210 <= xv:
-      return "May";
-      break;
-    case xv >= 1453161600:
-      return "June";
-    default:
-      break;
-  }
-};
-
 const APYChart = (props) => {
   const { main, liquidGreen } = useTheme();
   const { type, subtitle, defaultValue } = props;
@@ -93,11 +81,6 @@ const APYChart = (props) => {
     return !value
       ? `${defaultValue.substring(0, 4)} %`
       : `${value.substring(0, 4)} %`;
-  };
-
-  const formatX = (v) => {
-    "worklet";
-    return "may";
   };
 
   const getX = (value) => {
@@ -120,12 +103,10 @@ const APYChart = (props) => {
       "Dec",
     ];
     const date = new Date(Number(value * 1000));
-    const s = date.getSeconds();
-    const m = date.getMinutes();
-    const h = date.getHours();
+
     const d = date.getDate();
     const n = date.getMonth();
-    const y = date.getFullYear();
+
     // return `${monthNames[n]}`;
     return `${monthNames[n]} ${d}`;
   };
