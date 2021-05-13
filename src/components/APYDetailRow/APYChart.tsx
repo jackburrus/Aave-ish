@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions, View, Text } from "react-native";
 import {
   ChartDot,
@@ -7,9 +7,11 @@ import {
   monotoneCubicInterpolation,
   useChartData,
   ChartYLabel,
+  ChartXLabel,
 } from "@rainbow-me/animated-charts";
 import { useTheme } from "styled-components";
 import { APYChartLabel } from "./APYChartLabel";
+import { runOnJS, useDerivedValue } from "react-native-reanimated";
 export const { width: SIZE } = Dimensions.get("window");
 
 const getData = (type, subtitle) => {
@@ -67,11 +69,24 @@ const getData = (type, subtitle) => {
   }
 };
 
+const getXLabel = (xv) => {
+  switch (xv) {
+    case 1453075210 <= xv:
+      return "May";
+      break;
+    case xv >= 1453161600:
+      return "June";
+    default:
+      break;
+  }
+};
+
 const APYChart = (props) => {
   const { main, liquidGreen } = useTheme();
   const { type, subtitle, defaultValue } = props;
   const data = getData(type, subtitle);
   const points = monotoneCubicInterpolation({ data, range: 40 });
+  const [xValue, setxValue] = useState(0);
   const getY = (value) => {
     "worklet";
 
@@ -79,6 +94,42 @@ const APYChart = (props) => {
       ? `${defaultValue.substring(0, 4)} %`
       : `${value.substring(0, 4)} %`;
   };
+
+  const formatX = (v) => {
+    "worklet";
+    return "may";
+  };
+
+  const getX = (value) => {
+    "worklet";
+    if (value === "") {
+      return "Jan";
+    }
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    const date = new Date(Number(value * 1000));
+    const s = date.getSeconds();
+    const m = date.getMinutes();
+    const h = date.getHours();
+    const d = date.getDate();
+    const n = date.getMonth();
+    const y = date.getFullYear();
+    // return `${monthNames[n]}`;
+    return `${monthNames[n]} ${d}`;
+  };
+
   return (
     <View
       style={{
@@ -109,6 +160,7 @@ const APYChart = (props) => {
           }}
           format={getY}
         />
+        <ChartXLabel format={getX} />
       </ChartPathProvider>
     </View>
   );
