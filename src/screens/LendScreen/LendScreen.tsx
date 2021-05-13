@@ -74,7 +74,7 @@ export const LendScreen = (props: LendScreenProps) => {
       <View style={{ flex: 1, justifyContent: "space-around" }}>
         <CardContainer>
           <HealthFactorCard />
-          <APYCard />
+          <APYCard title="APY" />
         </CardContainer>
         <LendButtonContainer>
           {/* <LendButton onPress={() => Alert.alert("Submitted deposit.")}>

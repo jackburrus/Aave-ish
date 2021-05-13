@@ -5,7 +5,7 @@ import {
 } from "@react-navigation/stack";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { LendScreen } from "../screens/LendScreen/LendScreen";
-import { BorrowScreen } from "../screens/BorrowScreen";
+import { BorrowScreen } from "../screens/BorrowScreen/BorrowScreen";
 import AaveIcon from "../assets/icons/AaveIcon";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
@@ -43,7 +43,7 @@ function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
-      // initialRouteName={"Lend"}
+      initialRouteName={"Borrow"}
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerLeft: () => <HeaderLeft />,

@@ -1,12 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import styled from "styled-components/native";
-
+const { width, height } = Dimensions.get("window");
 interface HealthFactorCardProps {}
 
 const StyledHealthFactorContainer = styled.View`
   /* border: 1px solid white; */
-  width: 200px;
+  display: flex;
+  flex: 1.3;
   height: 120px;
   border-radius: 20px;
   background-color: ${(props) => props.theme.lightGreen};
@@ -20,7 +21,8 @@ const StyledTitleText = styled.Text`
   color: ${(props) => props.theme.main};
   font-family: "Rubik_500Medium";
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
+  font-size: 16px;
 `;
 
 const StyledTextHealthFactorContainer = styled.View`

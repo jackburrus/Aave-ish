@@ -1,11 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import styled from "styled-components/native";
-interface APYCardProps {}
 
+const { width, height } = Dimensions.get("window");
 const StyledAPYCardContainer = styled.View`
   border: 1px solid white;
-  width: 150px;
+  display: flex;
+  flex: 1;
+  margin-left: 20px;
+  /* width: ${width / 3}px; */
   height: 120px;
   border-radius: 15px;
   background-color: ${(props) => props.theme.lightBlue};
@@ -15,7 +18,8 @@ const StyledTitleText = styled.Text`
   color: ${(props) => props.theme.main};
   font-family: "Rubik_500Medium";
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
+  font-size: 16px;
 `;
 
 const StyledTextAPYContainer = styled.View`
@@ -30,11 +34,27 @@ const StyledAPYText = styled.Text`
   font-size: 42px;
   opacity: 0.6;
 `;
+const StyledSubtitleText = styled.Text`
+  color: ${(props) => props.theme.main};
+  font-family: "Rubik_500Medium";
+  font-size: 12px;
+  opacity: 0.6;
+  margin-left: 20px;
+`;
+
+interface APYCardProps {
+  title: string;
+  subtitle?: string;
+  percentage: number;
+}
 
 export const APYCard = (props: APYCardProps) => {
+  const { title, subtitle, percentage } = props;
   return (
     <StyledAPYCardContainer>
-      <StyledTitleText>APY</StyledTitleText>
+      <StyledTitleText>{title}</StyledTitleText>
+      {subtitle ? <StyledSubtitleText>({subtitle})</StyledSubtitleText> : null}
+
       <StyledTextAPYContainer>
         <StyledAPYText>3.4%</StyledAPYText>
       </StyledTextAPYContainer>

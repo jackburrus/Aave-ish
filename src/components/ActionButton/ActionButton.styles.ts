@@ -8,7 +8,7 @@ export const ActionButtonContainer = styled.Pressable<{ buttonColor: string }>`
   display: flex;
   flex: 1;
   justify-content: space-between;
-  padding-left: 25px;
+  padding-left: 20px;
   padding-right: 15px;
   align-items: center;
   margin: 10px;
@@ -22,6 +22,7 @@ export const StyledButtonText = styled.Text`
   color: ${(props) => props.theme.main};
   font-size: 18px;
   font-family: "Rubik_500Medium";
+  /* margin-right: 10px; */
   /* font-family: "Rubik_400Regular"; */
 `;
 

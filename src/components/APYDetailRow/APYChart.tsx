@@ -75,7 +75,9 @@ const APYChart = (props) => {
   const getY = (value) => {
     "worklet";
 
-    return !value ? defaultValue : `${value.substring(0, 4)} %`;
+    return !value
+      ? `${defaultValue.substring(0, 4)} %`
+      : `${value.substring(0, 4)} %`;
   };
   return (
     <View

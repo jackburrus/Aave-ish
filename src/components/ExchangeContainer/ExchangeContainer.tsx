@@ -9,8 +9,8 @@ import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
 const StyledExchangeContainer = styled.View`
-  /* height: ${height / 0.2}px; */
   height: 400px;
+
   width: ${width - 30}px;
   display: flex;
   flex: 1;
@@ -37,7 +37,7 @@ const AmountAndCoinContainer = styled.View`
   flex-direction: row;
 `;
 
-const AmountText = styled.Text`
+const AmountTextInput = styled.TextInput`
   color: ${(props) => props.theme.main};
   opacity: 0.5;
   font-size: 42px;
@@ -89,8 +89,7 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
   const { main, lightPurple, greyish, darkPurple } = useTheme();
   const [visible, setVisible] = React.useState(false);
   const [activeCoin, setActiveCoin] = useState(0);
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
+  const [amount, onChangeAmount] = useState(null);
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
@@ -98,7 +97,7 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
   return (
     <Provider>
       <StyledExchangeContainer>
-        <LendTitle>You Lend</LendTitle>
+        <LendTitle>You Deposit</LendTitle>
         <Menu
           visible={visible}
           onDismiss={closeMenu}
@@ -111,7 +110,12 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
           contentStyle={{ backgroundColor: "#cfc1e7" }}
           anchor={
             <AmountAndCoinContainer>
-              <AmountText>0.000</AmountText>
+              <AmountTextInput
+                value={amount}
+                placeholder={"0.000"}
+                keyboardType={"numeric"}
+                onChangeText={onChangeAmount}
+              />
               <CoinContainer onPress={openMenu}>
                 <Image
                   source={MarketsData[activeCoin].icon}
