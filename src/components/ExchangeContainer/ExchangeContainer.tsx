@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Image,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { Modal, Portal, Provider } from "react-native-paper";
 import { Button, Menu, Divider } from "react-native-paper";
 
@@ -9,7 +17,7 @@ import { AntDesign } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
 const StyledExchangeContainer = styled.View`
-  height: 400px;
+  /* height: 400px; */
 
   width: ${width - 30}px;
   display: flex;
@@ -85,7 +93,12 @@ const StyledPortfolioAmount = styled.Text`
   margin-left: 50px;
 `;
 
+interface ExchangeContainerProps {
+  type: string;
+}
+
 export const ExchangeContainer = (props: ExchangeContainerProps) => {
+  const { type } = props;
   const { main, lightPurple, greyish, darkPurple } = useTheme();
   const [visible, setVisible] = React.useState(false);
   const [activeCoin, setActiveCoin] = useState(0);
@@ -96,72 +109,79 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
 
   return (
     <Provider>
-      <StyledExchangeContainer>
-        <LendTitle>You Deposit</LendTitle>
-        <Menu
-          visible={visible}
-          onDismiss={closeMenu}
-          style={{
-            // borderWidth: 1,
-            // borderColor: "red",
-            marginLeft: 20,
-            width: width - 70,
-          }}
-          contentStyle={{ backgroundColor: "#cfc1e7" }}
-          anchor={
-            <AmountAndCoinContainer>
-              <AmountTextInput
-                value={amount}
-                placeholder={"0.000"}
-                keyboardType={"numeric"}
-                onChangeText={onChangeAmount}
-              />
-              <CoinContainer onPress={openMenu}>
-                <Image
-                  source={MarketsData[activeCoin].icon}
-                  style={{ width: 30, height: 30, marginRight: 10 }}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <StyledExchangeContainer>
+          <LendTitle>
+            {type === "Deposit" ? "You Deposit" : "You Borrow"}
+          </LendTitle>
+          <Menu
+            visible={visible}
+            onDismiss={closeMenu}
+            style={{
+              // borderWidth: 1,
+              // borderColor: "red",
+              marginLeft: 20,
+              width: width - 70,
+            }}
+            contentStyle={{ backgroundColor: "#cfc1e7" }}
+            anchor={
+              <AmountAndCoinContainer>
+                <AmountTextInput
+                  value={amount}
+                  placeholder={"0.000"}
+                  keyboardType={"numeric"}
+                  onChangeText={onChangeAmount}
                 />
-                <StyledAssetText>
-                  {MarketsData[activeCoin].asset}
-                </StyledAssetText>
-                <AntDesign
-                  name="down"
-                  size={20}
-                  color={main}
-                  style={{ marginLeft: 10, marginRight: 10 }}
+                <CoinContainer onPress={openMenu}>
+                  <Image
+                    source={MarketsData[activeCoin].icon}
+                    style={{ width: 30, height: 30, marginRight: 10 }}
+                  />
+                  <StyledAssetText>
+                    {MarketsData[activeCoin].asset}
+                  </StyledAssetText>
+                  <AntDesign
+                    name="down"
+                    size={20}
+                    color={main}
+                    style={{ marginLeft: 10, marginRight: 10 }}
+                  />
+                </CoinContainer>
+              </AmountAndCoinContainer>
+            }
+          >
+            {MarketsData.map((coin, index) => {
+              return (
+                <Menu.Item
+                  key={index}
+                  icon={() => (
+                    <Image
+                      source={coin.icon}
+                      style={{ width: 30, height: 30 }}
+                    />
+                  )}
+                  titleStyle={{ color: main, fontFamily: "Rubik_400Regular" }}
+                  onPress={() => {
+                    setActiveCoin(index);
+                    closeMenu();
+                  }}
+                  title={coin.asset}
                 />
-              </CoinContainer>
-            </AmountAndCoinContainer>
-          }
-        >
-          {MarketsData.map((coin, index) => {
-            return (
-              <Menu.Item
-                key={index}
-                icon={() => (
-                  <Image source={coin.icon} style={{ width: 30, height: 30 }} />
-                )}
-                titleStyle={{ color: main, fontFamily: "Rubik_400Regular" }}
-                onPress={() => {
-                  setActiveCoin(index);
-                  closeMenu();
-                }}
-                title={coin.asset}
-              />
-            );
-          })}
-        </Menu>
-        <Divider style={{ marginRight: 20, marginLeft: 20 }} />
-        <StyledSubText>Your Portfolio</StyledSubText>
-        <StyledPortfolioContainer>
-          <Image
-            source={MarketsData[activeCoin].icon}
-            style={{ width: 30, height: 30, marginRight: 10 }}
-          />
-          <StyledAssetText>{MarketsData[activeCoin].asset}</StyledAssetText>
-          <StyledPortfolioAmount>$100,432.49</StyledPortfolioAmount>
-        </StyledPortfolioContainer>
-      </StyledExchangeContainer>
+              );
+            })}
+          </Menu>
+          <Divider style={{ marginRight: 20, marginLeft: 20 }} />
+          <StyledSubText>Your Portfolio</StyledSubText>
+          <StyledPortfolioContainer>
+            <Image
+              source={MarketsData[activeCoin].icon}
+              style={{ width: 30, height: 30, marginRight: 10 }}
+            />
+            <StyledAssetText>{MarketsData[activeCoin].asset}</StyledAssetText>
+            <StyledPortfolioAmount>$100,432.49</StyledPortfolioAmount>
+          </StyledPortfolioContainer>
+        </StyledExchangeContainer>
+      </TouchableWithoutFeedback>
     </Provider>
   );
 };

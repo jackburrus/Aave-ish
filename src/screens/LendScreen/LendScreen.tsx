@@ -70,17 +70,13 @@ export const LendScreen = (props: LendScreenProps) => {
   );
   return (
     <LendScreenContainer>
-      <ExchangeContainer />
+      <ExchangeContainer type={"Deposit"} />
       <View style={{ flex: 1, justifyContent: "space-around" }}>
         <CardContainer>
           <HealthFactorCard />
-          <APYCard title="APY" />
+          <APYCard title="APY" percentage={3.1} />
         </CardContainer>
         <LendButtonContainer>
-          {/* <LendButton onPress={() => Alert.alert("Submitted deposit.")}>
-            <EvilIcons name="arrow-up" size={42} color={main} />
-            <StyledLendText>Lend</StyledLendText>
-          </LendButton> */}
           <SwipeButton
             thumbIconBackgroundColor="transparent"
             // thumbIconImageSource={ArrowIcon}
@@ -88,7 +84,8 @@ export const LendScreen = (props: LendScreenProps) => {
             thumbIconComponent={ArrowIcon}
             railBackgroundColor="rgba(255, 255, 255, 0.2)"
             railBorderColor="transparent"
-            titleColor="#ffffff"
+            titleColor={lightPurple}
+            title={"Swipe to Deposit"}
             thumbIconBorderColor="transparent"
             // title={"Lend"}
             height={70}

@@ -7,7 +7,8 @@ const StyledAPYCardContainer = styled.View`
   border: 1px solid white;
   display: flex;
   flex: 1;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   /* width: ${width / 3}px; */
   height: 120px;
   border-radius: 15px;
@@ -56,7 +57,7 @@ export const APYCard = (props: APYCardProps) => {
       {subtitle ? <StyledSubtitleText>({subtitle})</StyledSubtitleText> : null}
 
       <StyledTextAPYContainer>
-        <StyledAPYText>3.4%</StyledAPYText>
+        <StyledAPYText>{percentage}%</StyledAPYText>
       </StyledTextAPYContainer>
     </StyledAPYCardContainer>
   );
