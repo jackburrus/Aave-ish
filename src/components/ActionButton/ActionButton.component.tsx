@@ -20,7 +20,9 @@ export const ActionButton = (props: ActionButtonProps) => {
   const navigation = useNavigation();
   return (
     <ActionButtonContainer
-      onPress={() => navigation.navigate(title === "Lend" ? "Lend" : "Borrow")}
+      onPress={() =>
+        navigation.navigate(title === "Deposit" ? "Deposit" : "Borrow")
+      }
       buttonColor={title === "Borrow" ? "#E2F2FD" : "#eafefd"}
     >
       <StyledButtonText>{title}</StyledButtonText>

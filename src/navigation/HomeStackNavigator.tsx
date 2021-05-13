@@ -43,7 +43,7 @@ function HomeStackNavigator() {
   const theme = useTheme();
   return (
     <Stack.Navigator
-      initialRouteName={"Lend"}
+      // initialRouteName={"Lend"}
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerLeft: () => <HeaderLeft />,
@@ -56,7 +56,7 @@ function HomeStackNavigator() {
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Lend" component={LendScreen} />
+      <Stack.Screen name="Deposit" component={LendScreen} />
       <Stack.Screen name="Borrow" component={BorrowScreen} />
       <Stack.Screen name="MarketDetails" component={MarketDetails} />
     </Stack.Navigator>

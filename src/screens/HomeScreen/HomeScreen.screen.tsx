@@ -41,7 +41,7 @@ export const HomeScreen = (props: HomeScreenProps, { navigation }) => {
         <HeaderText>New Action</HeaderText>
       </HeaderContainer>
       <ActionButtonsContainer>
-        <ActionButton title={"Lend"} icon={<LendIcon />} />
+        <ActionButton title={"Deposit"} icon={<LendIcon />} />
         <ActionButton title={"Borrow"} icon={<BorrowIcon />} />
       </ActionButtonsContainer>
       <HeaderContainer>
