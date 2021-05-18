@@ -103,12 +103,14 @@ const CustomDrawer = ({ navigation }) => {
         <Avatar.Image size={100} source={require("../assets/avatar.png")} />
         <StyledNameText>Margaret Sullivan</StyledNameText>
       </StyledProfileDetailsContainer>
-      <StyledTransactionHistoryContainer>
-        <StyledNameText
-          style={{ fontSize: 18, marginBottom: 10, marginLeft: 10 }}
-        >
-          History
-        </StyledNameText>
+      <StyledNameText
+        style={{ fontSize: 18, marginBottom: 10, marginLeft: 10 }}
+      >
+        History
+      </StyledNameText>
+      <StyledTransactionHistoryContainer
+        contentContainerStyle={{ alignItems: "center" }}
+      >
         {TransactionData.map((transaction) => {
           if (
             transaction.type === "Borrowed" ||
@@ -121,6 +123,7 @@ const CustomDrawer = ({ navigation }) => {
                 amountCrypto={transaction.amountCrypto}
                 amountUSD={transaction.amountUSD}
                 changeCollateral={transaction.changeCollateral}
+                iconImageSource={transaction.iconImageSource}
               />
             );
           } else if (transaction.type === "Collateral Change") {
