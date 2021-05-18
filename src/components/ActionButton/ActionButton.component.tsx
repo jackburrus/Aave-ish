@@ -39,7 +39,7 @@ export const IconContainer = styled.View<{ shadowColor: string }>`
   background-color: white;
   justify-content: center;
   align-items: center;
-  box-shadow: 4px 4px 2px ${({ shadowColor }) => shadowColor};
+  box-shadow: 2px 2px 2px ${({ shadowColor }) => shadowColor};
 `;
 
 export const ActionButtonsContainer = styled.View`

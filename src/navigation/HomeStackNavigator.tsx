@@ -7,12 +7,14 @@ import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { LendScreen } from "../screens/LendScreen/LendScreen";
 import { BorrowScreen } from "../screens/BorrowScreen/BorrowScreen";
 import AaveIcon from "../assets/icons/AaveIcon";
-import { useNavigation } from "@react-navigation/native";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import { View } from "react-native";
 import { MarketDetails } from "../screens/MarketDetails/MarketDetails.screen";
 
 import { Avatar } from "react-native-paper";
+import { MainDrawerNavigator } from "./DrawerNavigator";
+import { Pressable } from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -30,12 +32,16 @@ const HeaderLeft = () => {
 };
 
 export const HeaderRight = () => {
+  const navigation = useNavigation();
+
   return (
-    <Avatar.Image
-      size={48}
-      style={{ marginRight: 20 }}
-      source={require("../assets/avatar.png")}
-    />
+    <Pressable onPress={() => navigation.toggleDrawer()}>
+      <Avatar.Image
+        size={48}
+        style={{ marginRight: 20 }}
+        source={require("../assets/avatar.png")}
+      />
+    </Pressable>
   );
 };
 
@@ -47,7 +53,9 @@ function HomeStackNavigator() {
       screenOptions={{
         ...TransitionPresets.SlideFromRightIOS,
         headerLeft: () => <HeaderLeft />,
-        headerRight: () => <HeaderRight />,
+        headerRight: ({ navigation }) => (
+          <HeaderRight navigation={navigation} />
+        ),
         headerStyle: {
           backgroundColor: theme.main,
           shadowColor: "transparent",

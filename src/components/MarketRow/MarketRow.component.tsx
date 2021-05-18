@@ -42,7 +42,8 @@ export const MarketRow = (props: MarketRowProps) => {
       <StyledIconContainer>
         <IconContainer
           style={{ width: 70, height: 70 }}
-          shadowColor={iconContainerHighlight}
+          shadowColor={"rgba(88, 90, 88, 0.2)"}
+          // shadowColor={iconContainerHighlight}
         >
           <Image source={icon} style={{ width: 40, height: 40 }} />
         </IconContainer>

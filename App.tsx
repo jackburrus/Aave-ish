@@ -14,6 +14,7 @@ import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
 import RootTabNavigator from "./src/navigation/RootTabNavigator";
 import HomeStackNavigator from "./src/navigation/HomeStackNavigator";
+import { MainDrawerNavigator } from "./src/navigation/DrawerNavigator";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -27,7 +28,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <ThemeProvider theme={darkTheme}>
-        <HomeStackNavigator />
+        <MainDrawerNavigator />
       </ThemeProvider>
     </NavigationContainer>
   );
