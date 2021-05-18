@@ -6,6 +6,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: null,
+    iconImageSource: require("../assets/icons/Coins/1.png"),
   },
   {
     index: 1,
@@ -14,6 +15,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: null,
+    iconImageSource: require("../assets/icons/Coins/2.png"),
   },
   {
     index: 2,
@@ -22,6 +24,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: { from: "No", to: "Yes" },
+    iconImageSource: require("../assets/icons/Coins/3.png"),
   },
   {
     index: 3,
@@ -30,6 +33,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: null,
+    iconImageSource: require("../assets/icons/Coins/4.png"),
   },
   {
     index: 4,
@@ -38,6 +42,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: { from: "Yes", to: "No" },
+    iconImageSource: require("../assets/icons/Coins/5.png"),
   },
   {
     index: 5,
@@ -46,6 +51,7 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: null,
+    iconImageSource: require("../assets/icons/Coins/5.png"),
   },
   {
     index: 6,
@@ -54,5 +60,6 @@ export const TransactionData = [
     amountCrypto: 0.0025,
     amountUSD: 4.132,
     changeCollateral: null,
+    iconImageSource: require("../assets/icons/Coins/5.png"),
   },
 ];

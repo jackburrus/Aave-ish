@@ -11,7 +11,9 @@ import AaveIcon from "../assets/icons/AaveIcon";
 import HomeStackNavigator from "./HomeStackNavigator";
 import { Text } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-
+import { TransactionData } from "../mockdata/TransactionData";
+import { BorrowDepositRow } from "../components/TransactionHistoryRow/BorrowDeposit";
+import { CollateralChangeRow } from "../components/TransactionHistoryRow/CollateralChangeRow";
 const { width, height } = Dimensions.get("window");
 
 const Drawer = createDrawerNavigator();
@@ -102,9 +104,30 @@ const CustomDrawer = ({ navigation }) => {
         <StyledNameText>Margaret Sullivan</StyledNameText>
       </StyledProfileDetailsContainer>
       <StyledTransactionHistoryContainer>
-        <Text>Transaction History</Text>
+        <StyledNameText
+          style={{ fontSize: 18, marginBottom: 10, marginLeft: 10 }}
+        >
+          History
+        </StyledNameText>
+        {TransactionData.map((transaction) => {
+          if (
+            transaction.type === "Borrowed" ||
+            transaction.type === "Deposit"
+          ) {
+            return (
+              <BorrowDepositRow
+                type={transaction.type}
+                currency={transaction.currency}
+                amountCrypto={transaction.amountCrypto}
+                amountUSD={transaction.amountUSD}
+                changeCollateral={transaction.changeCollateral}
+              />
+            );
+          } else if (transaction.type === "Collateral Change") {
+            return <CollateralChangeRow />;
+          }
+        })}
       </StyledTransactionHistoryContainer>
-      <Text>Hello</Text>
     </StyledDrawerContainer>
   );
 };
