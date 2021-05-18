@@ -52,7 +52,7 @@ const StyledDrawerContainer = styled.View`
   padding-top: ${Constants.statusBarHeight}px;
 `;
 const StyledHeaderContainer = styled.View`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex: 0.2;
   width: ${width}px;
@@ -61,19 +61,29 @@ const StyledHeaderContainer = styled.View`
   padding-right: 10px;
 `;
 const StyledProfileDetailsContainer = styled.View`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex: 1;
   width: ${width}px;
+  justify-content: center;
+  align-items: center;
 `;
 const StyledTransactionHistoryContainer = styled.ScrollView`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex: 2;
   width: ${width}px;
 `;
 
+const StyledNameText = styled.Text`
+  color: ${(props) => props.theme.lightGreen};
+  font-size: 28px;
+  font-family: "Rubik_500Medium";
+  margin-top: 10px;
+`;
+
 const CustomDrawer = ({ navigation }) => {
+  const { main, lightGreen } = useTheme();
   return (
     <StyledDrawerContainer>
       <StyledHeaderContainer>
@@ -84,11 +94,12 @@ const CustomDrawer = ({ navigation }) => {
           onPress={() => navigation.toggleDrawer()}
           name="arrow-forward-ios"
           size={36}
-          color="white"
+          color={lightGreen}
         />
       </StyledHeaderContainer>
       <StyledProfileDetailsContainer>
-        <Text>Profile Details</Text>
+        <Avatar.Image size={100} source={require("../assets/avatar.png")} />
+        <StyledNameText>Margaret Sullivan</StyledNameText>
       </StyledProfileDetailsContainer>
       <StyledTransactionHistoryContainer>
         <Text>Transaction History</Text>
@@ -103,7 +114,9 @@ export const MainDrawerNavigator = () => {
   return (
     <Drawer.Navigator
       drawerPosition={"right"}
-      drawerContent={CustomDrawer}
+      drawerContent={({ navigation }) => (
+        <CustomDrawer navigation={navigation} />
+      )}
       drawerStyle={{ width: width }}
       //   screenOptions={{
       //     headerLeft: () => <HeaderLeft />,
