@@ -4,11 +4,13 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { useNavigation } from "@react-navigation/native";
 import { Pressable, Dimensions } from "react-native";
+import Constants from "expo-constants";
 import { Avatar } from "react-native-paper";
 import styled, { useTheme } from "styled-components/native";
 import AaveIcon from "../assets/icons/AaveIcon";
 import HomeStackNavigator from "./HomeStackNavigator";
 import { Text } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -47,11 +49,50 @@ const StyledDrawerContainer = styled.View`
   background-color: ${(props) => props.theme.main};
   justify-content: center;
   align-items: center;
+  padding-top: ${Constants.statusBarHeight}px;
+`;
+const StyledHeaderContainer = styled.View`
+  border: 1px solid red;
+  display: flex;
+  flex: 0.2;
+  width: ${width}px;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 10px;
+`;
+const StyledProfileDetailsContainer = styled.View`
+  border: 1px solid red;
+  display: flex;
+  flex: 1;
+  width: ${width}px;
+`;
+const StyledTransactionHistoryContainer = styled.ScrollView`
+  border: 1px solid red;
+  display: flex;
+  flex: 2;
+  width: ${width}px;
 `;
 
-const CustomDrawer = () => {
+const CustomDrawer = ({ navigation }) => {
   return (
     <StyledDrawerContainer>
+      <StyledHeaderContainer>
+        {/* <Pressable>
+
+          </Pressable> */}
+        <MaterialIcons
+          onPress={() => navigation.toggleDrawer()}
+          name="arrow-forward-ios"
+          size={36}
+          color="white"
+        />
+      </StyledHeaderContainer>
+      <StyledProfileDetailsContainer>
+        <Text>Profile Details</Text>
+      </StyledProfileDetailsContainer>
+      <StyledTransactionHistoryContainer>
+        <Text>Transaction History</Text>
+      </StyledTransactionHistoryContainer>
       <Text>Hello</Text>
     </StyledDrawerContainer>
   );
