@@ -16,13 +16,7 @@ interface PieChartIconProps {}
 
 const { width } = Dimensions.get("window");
 
-const coinImages = [
-  require(`../../assets/icons/Coins/1.png`),
-  require(`../../assets/icons/Coins/2.png`),
-  require(`../../assets/icons/Coins/3.png`),
-  require(`../../assets/icons/Coins/4.png`),
-  require(`../../assets/icons/Coins/5.png`),
-];
+import { WalletData } from "../../mockdata/Markets";
 
 export const PieChartIcon = (props: PieChartIconProps) => {
   const { chartIndex } = useContext(ChartContext);
@@ -47,7 +41,7 @@ export const PieChartIcon = (props: PieChartIconProps) => {
     >
       <Image
         style={{ width: 30, height: 30 }}
-        source={coinImages[chartIndex - 1]}
+        source={WalletData[chartIndex - 1]?.coinImage}
       />
     </Animated.View>
   );

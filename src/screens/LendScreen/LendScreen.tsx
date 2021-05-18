@@ -79,7 +79,7 @@ export const LendScreen = (props: LendScreenProps) => {
         <LendButtonContainer>
           <SwipeButton
             thumbIconBackgroundColor="transparent"
-            // thumbIconImageSource={ArrowIcon}
+            shouldResetAfterSuccess={true}
             thum
             thumbIconComponent={ArrowIcon}
             railBackgroundColor="rgba(255, 255, 255, 0.2)"
