@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, ImageSourcePropType } from "react-native";
-import { IconContainer } from "../ActionButton/ActionButton.styles";
+import { IconContainer } from "../ActionButton/ActionButton.component";
 import {
   StyledAPYContainer,
   StyledDetailsContainer,
@@ -17,10 +17,18 @@ interface MarketRowProps {
   bgColor: string;
   icon: ImageSourcePropType;
   asset: string;
+  iconContainerHighlight: string;
 }
 
 export const MarketRow = (props: MarketRowProps) => {
-  const { marketSize, depositAPY, bgColor, icon, asset } = props;
+  const {
+    marketSize,
+    depositAPY,
+    bgColor,
+    icon,
+    asset,
+    iconContainerHighlight,
+  } = props;
   const navigation = useNavigation();
 
   return (
@@ -34,7 +42,7 @@ export const MarketRow = (props: MarketRowProps) => {
       <StyledIconContainer>
         <IconContainer
           style={{ width: 70, height: 70 }}
-          shadowColor={"rgba(88, 90, 88, 0.6)"}
+          shadowColor={iconContainerHighlight}
         >
           <Image source={icon} style={{ width: 40, height: 40 }} />
         </IconContainer>

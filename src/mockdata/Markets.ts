@@ -5,6 +5,7 @@ export const MarketsData = [
     marketSize: "892.67M",
     depositAPY: 12.63,
     cardColor: "#FAECE0",
+    iconContainerHighlight: "rgba(250, 224, 225, 0.9)",
   },
   {
     asset: "Aave",
@@ -12,6 +13,7 @@ export const MarketsData = [
     marketSize: "1.2B",
     depositAPY: 9.23,
     cardColor: "#CFCAF1",
+    iconContainerHighlight: "rgba(230, 189, 254, 0.6)",
   },
   {
     asset: "Uniswap",
@@ -19,6 +21,7 @@ export const MarketsData = [
     marketSize: "1.7B",
     depositAPY: 3.78,
     cardColor: "#EAD6DE",
+    iconContainerHighlight: "rgba(251, 197, 245, 0.8)",
   },
   {
     asset: "Compound",
@@ -26,6 +29,7 @@ export const MarketsData = [
     marketSize: "2.86B",
     depositAPY: 10.01,
     cardColor: "#FAECE0",
+    iconContainerHighlight: "rgba(250, 224, 225, 0.9)",
   },
 ];
 

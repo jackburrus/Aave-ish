@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { ActionButton } from "../../components/ActionButton/ActionButton.component";
-import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.styles";
+import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.component";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
 import AaveIcon from "../../assets/icons/AaveIcon";
@@ -57,6 +57,7 @@ export const HomeScreen = (props: HomeScreenProps) => {
               bgColor={market.cardColor}
               icon={market.icon}
               asset={market.asset}
+              iconContainerHighlight={market.iconContainerHighlight}
             />
           );
         })}
