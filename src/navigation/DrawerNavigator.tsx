@@ -3,11 +3,14 @@ import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { useNavigation } from "@react-navigation/native";
-import { Pressable } from "react-native";
+import { Pressable, Dimensions } from "react-native";
 import { Avatar } from "react-native-paper";
-import { useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components/native";
 import AaveIcon from "../assets/icons/AaveIcon";
 import HomeStackNavigator from "./HomeStackNavigator";
+import { Text } from "react-native";
+
+const { width, height } = Dimensions.get("window");
 
 const Drawer = createDrawerNavigator();
 
@@ -25,7 +28,6 @@ const HeaderLeft = () => {
 };
 
 export const HeaderRight = ({ navigation }) => {
-  console.log(navigation);
   return (
     <Pressable
     //   onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
@@ -39,12 +41,29 @@ export const HeaderRight = ({ navigation }) => {
   );
 };
 
+const StyledDrawerContainer = styled.View`
+  display: flex;
+  flex: 1;
+  background-color: ${(props) => props.theme.main};
+  justify-content: center;
+  align-items: center;
+`;
+
+const CustomDrawer = () => {
+  return (
+    <StyledDrawerContainer>
+      <Text>Hello</Text>
+    </StyledDrawerContainer>
+  );
+};
+
 export const MainDrawerNavigator = () => {
   const theme = useTheme();
   return (
     <Drawer.Navigator
       drawerPosition={"right"}
-      drawerType={"front"}
+      drawerContent={CustomDrawer}
+      drawerStyle={{ width: width }}
       //   screenOptions={{
       //     headerLeft: () => <HeaderLeft />,
       //     headerRight: ({ navigation }) => (
