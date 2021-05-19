@@ -20,7 +20,7 @@ const APYDetailRowContainer = styled.Pressable`
 const StyledAPYTitleContainer = styled.View`
   display: flex;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 

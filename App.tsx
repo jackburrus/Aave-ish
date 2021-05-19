@@ -1,21 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { ActionButton } from "./src/components/ActionButton/ActionButton";
-import { HomeScreen } from "./src/screens/HomeScreen/HomeScreen.screen";
-import { ThemeProvider } from "styled-components/native";
-import { darkTheme } from "./src/theme/theme";
 import {
   Rubik_400Regular,
   Rubik_500Medium,
   useFonts,
 } from "@expo-google-fonts/rubik";
-import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
-import RootTabNavigator from "./src/navigation/RootTabNavigator";
-import HomeStackNavigator from "./src/navigation/HomeStackNavigator";
-import { MainDrawerNavigator } from "./src/navigation/DrawerNavigator";
+import AppLoading from "expo-app-loading";
+import React from "react";
 import { ToastProvider } from "react-native-styled-toast";
+import { ThemeProvider } from "styled-components/native";
+import { MainDrawerNavigator } from "./src/navigation/DrawerNavigator";
+import { darkTheme } from "./src/theme/theme";
 
 export default function App() {
   let [fontsLoaded] = useFonts({

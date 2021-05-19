@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  Image,
-  Dimensions,
-} from "react-native";
+import { Dimensions } from "react-native";
+import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow";
+import { HeaderContainer, HeaderText } from "../HomeScreen/Home.styles";
 import {
   MarketDetailsContainer,
   MarketSummaryDetailsContainer,
@@ -14,10 +9,6 @@ import {
 } from "./MarketDetails.styles";
 import MarketDetailsPieChart from "./MarketDetailsPieChart";
 import { MarketDetailsText } from "./MarketDetailsText";
-import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow";
-import { device } from "../../constants/index";
-import { ExtraDetails } from "./ExtraDetails";
-import { HeaderText, HeaderContainer } from "../HomeScreen/Home.styles";
 
 const mockAPYData = [
   {
@@ -44,42 +35,9 @@ const mockAPYData = [
 
 interface MarketDetailsProps {}
 
-const ExtraDetailsData = [
-  {
-    title: "Maximum LTV",
-    percentage: true,
-    percentageAmount: "75%",
-    detail: null,
-  },
-  {
-    title: "Liquidation Threshold",
-    percentage: true,
-    percentageAmount: "80%",
-    detail: null,
-  },
-  {
-    title: "Liquidation Penalty",
-    percentage: true,
-    percentageAmount: "5%",
-    detail: null,
-  },
-  {
-    title: "Used as Collateral",
-    percentage: false,
-    detail: null,
-  },
-  {
-    title: "Stable Borrowing",
-    percentage: false,
-    detail: null,
-  },
-];
-const { width, height } = Dimensions.get("window");
-
 export const MarketDetails = ({ route, navigation }) => {
   const { marketSize, depositAPY, icon, asset } = route.params.props;
 
-  // const details = { marketSize: "1.3B", depositAPY: 3.4 };
   return (
     <MarketDetailsContainer>
       <MarketSummaryDetailsContainer>
@@ -115,7 +73,7 @@ export const MarketDetails = ({ route, navigation }) => {
       </StyledAPYContainer>
       {/* <View
         style={{
-          // borderWidth: 1,
+          
           borderRadius: 20,
           position: "absolute",
           bottom: 35,
@@ -123,9 +81,9 @@ export const MarketDetails = ({ route, navigation }) => {
           flexDirection: "row",
           flexWrap: "wrap",
           justifyContent: "space-evenly",
-          // alignItems: "space-around",
-          // marginLeft: 50,
-          // marginRight: 50,
+          
+          
+          
           height: 90,
         }}
       >

@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import styled from "styled-components/native";
 import { FontAwesome } from "@expo/vector-icons";
+import React from "react";
+import { Text, View } from "react-native";
+import styled from "styled-components/native";
 interface ExtraDetailsProps {
   title: string;
   detail: JSX.Element;
@@ -10,9 +10,6 @@ interface ExtraDetailsProps {
 }
 
 const ExtraDetailsContainer = styled.View`
-  /* border: 1px solid white; */
-  /* width: 200; */
-  /* height: 30; */
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -49,7 +46,6 @@ export const ExtraDetails = (props: ExtraDetailsProps) => {
             marginRight: 10,
             alignItems: "center",
             justifyContent: "center",
-            // borderWidth: 1,
           }}
           color="green"
         />

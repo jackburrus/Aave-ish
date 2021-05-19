@@ -1,27 +1,53 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { ActionButton } from "../../components/ActionButton/ActionButton";
-import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton";
+import { Dimensions } from "react-native";
+import styled from "styled-components/native";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
-import AaveIcon from "../../assets/icons/AaveIcon";
-
-import PieChartExample from "../../components/WalletCard/PieChart";
 import {
-  HomeContainer,
-  WalletContainer,
-  NewActionContainer,
-  AssetsContainer,
-  HeaderContainer,
-  HeaderText,
-} from "./Home.styles";
-import { WalletCard } from "../../components/WalletCard/WalletCard";
+  ActionButton,
+  ActionButtonsContainer,
+} from "../../components/ActionButton/ActionButton";
 import { MarketRow } from "../../components/MarketRow/MarketRow";
-import { StyledMarketsContainer } from "../../components/MarketRow/MarketRow.styles";
-import { MarketsData } from "../../mockdata/Markets";
-import { ChartContextProvider } from "../../context/ChartContext";
+import PieChartExample from "../../components/WalletCard/PieChart";
 import { PieChartIcon } from "../../components/WalletCard/PieChartIcon";
-const { width, height } = Dimensions.get("window");
+import { WalletCard } from "../../components/WalletCard/WalletCard";
+import { ChartContextProvider } from "../../context/ChartContext";
+import { MarketsData } from "../../mockdata/Markets";
+
+const { width } = Dimensions.get("window");
+
+const WalletContainer = styled.View`
+  flex: 1;
+  width: ${width}px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+const HomeContainer = styled.View`
+  display: flex;
+  flex: 1;
+  background-color: #1b1d5b;
+  align-items: center;
+`;
+
+const AssetsContainer = styled.ScrollView`
+  flex: 2;
+  width: ${width}px;
+`;
+
+const HeaderContainer = styled.View`
+  width: ${width - 50}px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+const HeaderText = styled.Text`
+  color: white;
+  font-size: 22px;
+  font-family: "Rubik_500Medium";
+`;
+
 interface HomeScreenProps {}
 
 export const HomeScreen = (props: HomeScreenProps) => {
@@ -62,9 +88,6 @@ export const HomeScreen = (props: HomeScreenProps) => {
           );
         })}
       </AssetsContainer>
-      {/* <StyledMarketsContainer>
-        
-      </StyledMarketsContainer> */}
     </HomeContainer>
   );
 };

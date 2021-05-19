@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import styled, { useTheme } from "styled-components/native";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 const StyledAPYCardContainer = styled.View`
   border: 1px solid white;
   display: flex;
@@ -51,7 +51,7 @@ interface APYCardProps {
 
 export const APYCard = (props: APYCardProps) => {
   const { title, subtitle, percentage } = props;
-  const { main, lightGreen, lightBlue } = useTheme();
+  const { lightGreen, lightBlue } = useTheme();
   return (
     <StyledAPYCardContainer
       style={

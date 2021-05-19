@@ -1,22 +1,17 @@
 import React, { useContext, useEffect } from "react";
-import { Dimensions } from "react-native";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Dimensions, Image } from "react-native";
 import Animated, {
-  useSharedValue,
-  Extrapolate,
-  useAnimatedStyle,
-  withDelay,
-  withTiming,
-  interpolate,
   Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
 import { ChartContext } from "../../context/ChartContext";
+import { WalletData } from "../../mockdata/Markets";
 
 interface PieChartIconProps {}
 
 const { width } = Dimensions.get("window");
-
-import { WalletData } from "../../mockdata/Markets";
 
 export const PieChartIcon = (props: PieChartIconProps) => {
   const { chartIndex } = useContext(ChartContext);
@@ -28,8 +23,6 @@ export const PieChartIcon = (props: PieChartIconProps) => {
       duration: 2000,
       easing: Easing.inOut(Easing.ease),
     });
-    // console.log("ran index");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chartIndex]);
 
   const animatedStyle = useAnimatedStyle(() => ({

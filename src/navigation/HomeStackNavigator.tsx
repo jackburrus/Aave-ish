@@ -1,20 +1,18 @@
-import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
-import { LendScreen } from "../screens/LendScreen/LendScreen";
-import { BorrowScreen } from "../screens/BorrowScreen/BorrowScreen";
-import AaveIcon from "../assets/icons/AaveIcon";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
-import { useTheme } from "styled-components";
-import { View } from "react-native";
-import { MarketDetails } from "../screens/MarketDetails/MarketDetails.screen";
-
-import { Avatar } from "react-native-paper";
-import { MainDrawerNavigator } from "./DrawerNavigator";
+import React from "react";
 import { Pressable } from "react-native";
+import { Avatar } from "react-native-paper";
+import { useTheme } from "styled-components";
+
+import AaveIcon from "../assets/icons/AaveIcon";
+import { BorrowScreen } from "../screens/BorrowScreen/BorrowScreen";
+import { HomeScreen } from "../screens/HomeScreen/HomeScreen";
+import { LendScreen } from "../screens/LendScreen/LendScreen";
+import { MarketDetails } from "../screens/MarketDetails/MarketDetails";
 
 const Stack = createStackNavigator();
 

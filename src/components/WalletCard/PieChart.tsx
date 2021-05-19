@@ -20,7 +20,6 @@ const PieChartExample = () => {
       svg: { fill: chartIndex === 2 ? "#36B4C4" : "#9900cc" },
       onPress: () => setChartIndex(2),
       arc: chartIndex === 2 ? { outerRadius: "130%", cornerRadius: 10 } : null,
-      // arc: { outerRadius: "130%", cornerRadius: 10 },
     },
     {
       key: 3,
