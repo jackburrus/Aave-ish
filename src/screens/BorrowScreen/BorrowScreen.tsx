@@ -6,6 +6,7 @@ import { APYCard } from "../LendScreen/APYCard";
 interface BorrowScreenProps {}
 import { Entypo } from "@expo/vector-icons";
 import SwipeButton from "rn-swipe-button";
+import { SubmitButton } from "../../components/SubmitButton/SubmitButton";
 
 const { width, height } = Dimensions.get("window");
 
@@ -53,7 +54,8 @@ export const BorrowScreen = (props: BorrowScreenProps) => {
         <APYCard title="APY" subtitle="variable" percentage={4.5} />
       </CardContainer>
       <LendButtonContainer>
-        <SwipeButton
+        <SubmitButton />
+        {/* <SwipeButton
           thumbIconBackgroundColor="transparent"
           // thumbIconImageSource={ArrowIcon}
           shouldResetAfterSuccess={true}
@@ -73,7 +75,7 @@ export const BorrowScreen = (props: BorrowScreenProps) => {
           onSwipeStart={() => console.log("Swipe started!")}
           onSwipeFail={() => console.log("Incomplete swipe!")}
           onSwipeSuccess={() => Alert.alert("Submitted!")}
-        />
+        /> */}
       </LendButtonContainer>
     </BorrowScreenContainer>
   );
