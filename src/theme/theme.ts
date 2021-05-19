@@ -22,6 +22,16 @@ declare module "styled-components" {
 }
 
 export const darkTheme: DefaultTheme = {
+  space: [0, 4, 8, 12, 16, 20, 24, 32, 40, 48],
+  colors: {
+    text: "#0A0A0A",
+    background: "#FFF",
+    border: "#E2E8F0",
+    muted: "#F0F1F3",
+    success: "#7DBE31",
+    error: "#FC0021",
+    info: "#00FFFF",
+  },
   main: "#1b1d5b",
   darkerMain: "#151748",
   secondary: "pink",

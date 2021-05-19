@@ -15,6 +15,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import RootTabNavigator from "./src/navigation/RootTabNavigator";
 import HomeStackNavigator from "./src/navigation/HomeStackNavigator";
 import { MainDrawerNavigator } from "./src/navigation/DrawerNavigator";
+import { ToastProvider } from "react-native-styled-toast";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -28,7 +29,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <ThemeProvider theme={darkTheme}>
-        <MainDrawerNavigator />
+        <ToastProvider>
+          <MainDrawerNavigator />
+        </ToastProvider>
       </ThemeProvider>
     </NavigationContainer>
   );

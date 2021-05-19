@@ -1,9 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { View, Text, StyleSheet, Pressable, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Dimensions,
+  Alert,
+} from "react-native";
 import styled, { useTheme } from "styled-components/native";
 interface SubmitButtonProps {}
 const { width, height } = Dimensions.get("window");
 import { Feather } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { useToast } from "react-native-styled-toast";
+
 import Animated, {
   Extrapolate,
   interpolate,
@@ -37,7 +47,9 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   const [clicked, setClicked] = useState(false);
   const progress = useSharedValue(0);
   const translateX = useSharedValue(0);
+  const checkOpacity = useSharedValue(0);
   const { lightBlueHighlight, liquidGreen } = useTheme();
+  const { toast } = useToast();
 
   const onPress = useCallback(() => {
     // setClicked(!clicked);
@@ -47,8 +59,13 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       500,
       withTiming(translateX.value === 0 ? 100 : 0),
     );
+    checkOpacity.value = withDelay(
+      1500,
+      withTiming(checkOpacity.value === 0 ? 1 : 0),
+    );
+    // toast({ message: 'Check me out!'})}
     // translateX.value = withTiming(100);
-  }, [progress, translateX]);
+  }, [progress, translateX, checkOpacity]);
 
   const animatedIconStyles = useAnimatedStyle(() => {
     const opacityValue = interpolate(translateX.value, [0, 100], [1, 0]);
@@ -87,8 +104,28 @@ export const SubmitButton = (props: SubmitButtonProps) => {
     };
   });
 
+  const animatedCheckIconStyles = useAnimatedStyle(() => {
+    return {
+      opacity: checkOpacity.value,
+    };
+  });
+
+  const ToastConfig = {
+    closeIconName: "arrow-up-right",
+    duration: 2000,
+    onPress: () => Alert.alert("Viewing on Etherscan"),
+  };
+
   return (
-    <StyledButtonContainer onPress={onPress} style={animatedBackground}>
+    <StyledButtonContainer
+      style={animatedBackground}
+      onPress={() => {
+        onPress();
+        setTimeout(() => {
+          toast({ message: "View on Etherscan", ...ToastConfig });
+        }, 2000);
+      }}
+    >
       <Animated.View style={animatedIconStyles}>
         <Feather
           name="send"
@@ -100,6 +137,11 @@ export const SubmitButton = (props: SubmitButtonProps) => {
 
       <Animated.View style={animatedTextStyles}>
         <StyledButtonText style={{ color: "white" }}>Submit</StyledButtonText>
+      </Animated.View>
+      <Animated.View
+        style={[{ position: "absolute" }, animatedCheckIconStyles]}
+      >
+        <AntDesign name="check" size={24} color={"white"} />
       </Animated.View>
     </StyledButtonContainer>
   );

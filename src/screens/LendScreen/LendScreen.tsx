@@ -8,6 +8,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import SwipeButton from "rn-swipe-button";
 import lend from "../../assets/Lend.png";
 import { Entypo } from "@expo/vector-icons";
+import { SubmitButton } from "../../components/SubmitButton/SubmitButton";
 
 interface LendScreenProps {}
 
@@ -77,7 +78,8 @@ export const LendScreen = (props: LendScreenProps) => {
           <APYCard title="APY" percentage={3.1} />
         </CardContainer>
         <LendButtonContainer>
-          <SwipeButton
+          <SubmitButton />
+          {/* <SwipeButton
             thumbIconBackgroundColor="transparent"
             shouldResetAfterSuccess={true}
             thum
@@ -97,7 +99,7 @@ export const LendScreen = (props: LendScreenProps) => {
             onSwipeStart={() => console.log("Swipe started!")}
             onSwipeFail={() => console.log("Incomplete swipe!")}
             onSwipeSuccess={() => Alert.alert("Submitted!")}
-          />
+          /> */}
         </LendButtonContainer>
       </View>
     </LendScreenContainer>
