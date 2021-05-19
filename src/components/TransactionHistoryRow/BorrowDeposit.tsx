@@ -65,7 +65,7 @@ const StyledTypeText = styled.Text`
 
 const StyledCoinText = styled.Text`
   color: ${(props) => props.theme.lightGreen};
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Rubik_500Medium";
 `;
 

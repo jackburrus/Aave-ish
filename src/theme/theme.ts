@@ -18,6 +18,7 @@ declare module "styled-components" {
     borrowedRed: string;
     liquidGreen: string;
     greyish: string;
+    linkBlue: string;
   }
 }
 
@@ -48,4 +49,5 @@ export const darkTheme: DefaultTheme = {
   borrowedRed: "#DE5758",
   liquidGreen: "#79C982",
   greyish: "#A0A5AA",
+  linkBlue: "#0ca4ff",
 };

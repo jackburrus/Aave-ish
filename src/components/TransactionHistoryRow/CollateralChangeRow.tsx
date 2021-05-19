@@ -86,13 +86,13 @@ function getCurrentDate(separator = "/") {
 
 const NoText = styled.Text`
   color: #ed6d69;
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Rubik_500Medium";
   margin: 5px;
 `;
 const YesText = styled.Text`
   color: ${(props) => props.theme.liquidGreen};
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Rubik_500Medium";
   margin: 5px;
 `;

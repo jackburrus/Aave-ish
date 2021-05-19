@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Pressable, Dimensions, View } from "react-native";
 import Constants from "expo-constants";
 import { Avatar, Divider } from "react-native-paper";
+import { AntDesign } from "@expo/vector-icons";
 import styled, { useTheme } from "styled-components/native";
 import AaveIcon from "../assets/icons/AaveIcon";
 import HomeStackNavigator from "./HomeStackNavigator";
@@ -14,6 +15,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { TransactionData } from "../mockdata/TransactionData";
 import { BorrowDepositRow } from "../components/TransactionHistoryRow/BorrowDeposit";
 import { CollateralChangeRow } from "../components/TransactionHistoryRow/CollateralChangeRow";
+import { Alert } from "react-native";
 const { width, height } = Dimensions.get("window");
 
 const Drawer = createDrawerNavigator();
@@ -83,9 +85,15 @@ const StyledNameText = styled.Text`
   font-family: "Rubik_500Medium";
   margin-top: 10px;
 `;
+const StyledLinkText = styled.Text`
+  color: ${(props) => props.theme.linkBlue};
+  font-size: 12px;
+  font-family: "Rubik_500Medium";
+  /* margin-top: 10px; */
+`;
 
 const CustomDrawer = ({ navigation }) => {
-  const { main, lightGreen } = useTheme();
+  const { main, lightGreen, linkBlue } = useTheme();
   return (
     <StyledDrawerContainer>
       <StyledHeaderContainer>
@@ -102,6 +110,26 @@ const CustomDrawer = ({ navigation }) => {
       <StyledProfileDetailsContainer>
         <Avatar.Image size={100} source={require("../assets/avatar.png")} />
         <StyledNameText>Margaret Sullivan</StyledNameText>
+        <View
+          style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
+        >
+          <Pressable
+            onPress={() => Alert.alert("Disconnected")}
+            style={{ flexDirection: "row" }}
+          >
+            <AntDesign name="disconnect" size={12} color={linkBlue} />
+            <StyledLinkText style={{ marginRight: 10, marginLeft: 5 }}>
+              Disconnect Wallet
+            </StyledLinkText>
+          </Pressable>
+          <Pressable
+            onPress={() => Alert.alert("Received")}
+            style={{ flexDirection: "row" }}
+          >
+            <AntDesign name="qrcode" size={12} color={linkBlue} />
+            <StyledLinkText style={{ marginLeft: 5 }}>Receive</StyledLinkText>
+          </Pressable>
+        </View>
       </StyledProfileDetailsContainer>
       {/* <View style={{ width: width, paddingLeft: 15 }}> */}
       <StyledNameText
