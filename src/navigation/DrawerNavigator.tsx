@@ -3,9 +3,9 @@ import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { useNavigation } from "@react-navigation/native";
-import { Pressable, Dimensions } from "react-native";
+import { Pressable, Dimensions, View } from "react-native";
 import Constants from "expo-constants";
-import { Avatar } from "react-native-paper";
+import { Avatar, Divider } from "react-native-paper";
 import styled, { useTheme } from "styled-components/native";
 import AaveIcon from "../assets/icons/AaveIcon";
 import HomeStackNavigator from "./HomeStackNavigator";
@@ -103,11 +103,24 @@ const CustomDrawer = ({ navigation }) => {
         <Avatar.Image size={100} source={require("../assets/avatar.png")} />
         <StyledNameText>Margaret Sullivan</StyledNameText>
       </StyledProfileDetailsContainer>
+      {/* <View style={{ width: width, paddingLeft: 15 }}> */}
       <StyledNameText
-        style={{ fontSize: 18, marginBottom: 10, marginLeft: 10 }}
+        style={{ fontSize: 20, marginBottom: 10, marginLeft: 10 }}
       >
-        History
+        Transaction History
       </StyledNameText>
+      {/* <Divider
+        style={{
+          backgroundColor: lightGreen,
+          //   height: 2,
+
+          //   borderWidth: 1,
+          width: width,
+        }}
+      /> */}
+
+      {/* </View> */}
+
       <StyledTransactionHistoryContainer
         contentContainerStyle={{ alignItems: "center" }}
       >

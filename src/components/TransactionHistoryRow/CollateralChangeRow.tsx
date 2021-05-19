@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ImageSourcePropType } from "react-native";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import styled, { useTheme } from "styled-components/native";
-
+import { Ionicons } from "@expo/vector-icons";
 type changeCollateral = {
   from: string;
   to: string;
@@ -73,6 +73,30 @@ const StyledAmountUSD = styled.Text`
   font-family: "Rubik_500Medium";
 `;
 
+function getCurrentDate(separator = "/") {
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${year}${separator}${
+    month < 10 ? `0${month}` : `${month}`
+  }${separator}${date}`;
+}
+
+const NoText = styled.Text`
+  color: #ed6d69;
+  font-size: 14px;
+  font-family: "Rubik_500Medium";
+  margin: 5px;
+`;
+const YesText = styled.Text`
+  color: ${(props) => props.theme.liquidGreen};
+  font-size: 14px;
+  font-family: "Rubik_500Medium";
+  margin: 5px;
+`;
+
 export const CollateralChangeRow = (props: CollateralChangeRowProps) => {
   const {
     type,
@@ -114,17 +138,25 @@ export const CollateralChangeRow = (props: CollateralChangeRowProps) => {
           />
         </IconContainer>
         <CoinTextContainer>
-          {/* <StyledTypeText>{type}</StyledTypeText>
-          <StyledCoinText>{currency}</StyledCoinText> */}
+          <StyledTypeText>{type}</StyledTypeText>
+          <StyledCoinText>{currency}</StyledCoinText>
         </CoinTextContainer>
       </CoinContainer>
       <AmountContainer>
-        {/* <StyledAmountCryptoText>{amountCrypto}</StyledAmountCryptoText> */}
-        {/* <StyledAmountUSD
-          style={{ color: type === "Borrowed" ? lightGreen : liquidGreen }}
-        >
-          {amountUSD}
-        </StyledAmountUSD> */}
+        <StyledAmountCryptoText>{getCurrentDate()}</StyledAmountCryptoText>
+        {changeCollateral?.from === "No" ? (
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <NoText>No</NoText>
+            <Ionicons name="arrow-forward" size={10} color={lightGreen} />
+            <YesText>Yes</YesText>
+          </View>
+        ) : (
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <YesText>Yes</YesText>
+            <Ionicons name="arrow-forward" size={10} color={lightGreen} />
+            <NoText>No</NoText>
+          </View>
+        )}
       </AmountContainer>
     </RowContainer>
   );
