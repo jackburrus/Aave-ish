@@ -131,6 +131,7 @@ const CustomDrawer = ({ navigation }) => {
           ) {
             return (
               <BorrowDepositRow
+                key={transaction.index}
                 type={transaction.type}
                 currency={transaction.currency}
                 amountCrypto={transaction.amountCrypto}
@@ -142,6 +143,7 @@ const CustomDrawer = ({ navigation }) => {
           } else if (transaction.type === "Collateral Change") {
             return (
               <CollateralChangeRow
+                key={transaction.index}
                 type={transaction.type}
                 currency={transaction.currency}
                 amountCrypto={transaction.amountCrypto}

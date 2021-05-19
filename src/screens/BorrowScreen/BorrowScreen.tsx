@@ -56,7 +56,7 @@ export const BorrowScreen = (props: BorrowScreenProps) => {
         <SwipeButton
           thumbIconBackgroundColor="transparent"
           // thumbIconImageSource={ArrowIcon}
-
+          shouldResetAfterSuccess={true}
           thumbIconComponent={ArrowIcon}
           railBackgroundColor="rgba(255, 255, 255, 0.2)"
           railBorderColor="transparent"

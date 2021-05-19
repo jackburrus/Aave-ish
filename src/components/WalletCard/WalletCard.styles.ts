@@ -26,7 +26,7 @@ export const WalletCardTitleContainer = styled.View`
 `;
 export const WalletCardTitleText = styled.Text`
   color: ${(props) => props.theme.main};
-  font-size: 16px;
+  font-size: 24px;
   font-family: "Rubik_500Medium";
   margin-top: 10px;
 `;
