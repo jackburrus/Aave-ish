@@ -127,7 +127,16 @@ const CustomDrawer = ({ navigation }) => {
               />
             );
           } else if (transaction.type === "Collateral Change") {
-            return <CollateralChangeRow />;
+            return (
+              <CollateralChangeRow
+                type={transaction.type}
+                currency={transaction.currency}
+                amountCrypto={transaction.amountCrypto}
+                amountUSD={transaction.amountUSD}
+                changeCollateral={transaction.changeCollateral}
+                iconImageSource={transaction.iconImageSource}
+              />
+            );
           }
         })}
       </StyledTransactionHistoryContainer>
