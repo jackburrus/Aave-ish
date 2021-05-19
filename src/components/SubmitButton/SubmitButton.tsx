@@ -1,21 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  Dimensions,
-  Alert,
-} from "react-native";
-import styled, { useTheme } from "styled-components/native";
-interface SubmitButtonProps {}
-const { width, height } = Dimensions.get("window");
-import { Feather } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { useToast } from "react-native-styled-toast";
-
+import { AntDesign, Feather } from "@expo/vector-icons";
+import React, { useCallback, useState } from "react";
+import { Alert, Dimensions, Pressable } from "react-native";
 import Animated, {
-  Extrapolate,
   interpolate,
   interpolateColor,
   useAnimatedStyle,
@@ -23,6 +9,10 @@ import Animated, {
   withDelay,
   withTiming,
 } from "react-native-reanimated";
+import { useToast } from "react-native-styled-toast";
+import styled, { useTheme } from "styled-components/native";
+interface SubmitButtonProps {}
+const { width, height } = Dimensions.get("window");
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 const BUTTON_WIDTH = width / 2.5;
@@ -32,7 +22,7 @@ const StyledButtonContainer = styled(AnimatedPressable)`
   height: 50px;
 
   border-radius: ${BUTTON_RADIUS}px;
-  /* background-color: ${(props) => props.theme.lightBlueHighlight}; */
+
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -58,8 +48,6 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   const { toast } = useToast();
 
   const onPress = useCallback(() => {
-    // setClicked(!clicked);
-    // setTextColor(switchState ? 'rgb(72,202,228)' : 'white')
     progress.value = withTiming(progress.value === 0 ? 1 : 0);
     translateX.value = withDelay(
       500,
@@ -69,8 +57,6 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       1500,
       withTiming(checkOpacity.value === 0 ? 1 : 0),
     );
-    // toast({ message: 'Check me out!'})}
-    // translateX.value = withTiming(100);
   }, [progress, translateX, checkOpacity]);
 
   const animatedIconStyles = useAnimatedStyle(() => {
@@ -95,13 +81,6 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       interpolate(translateX.value, [0, 100], [BUTTON_RADIUS, 100]),
     ),
   }));
-
-  // useEffect(() => {
-  //   // if (progress.value === 1) {
-  //   //   console.log("ran");
-  //   translateX.value = withTiming(translateX.value === 1 ? 100 : 0);
-  //   // }
-  // }, [progress.value]);
 
   const animatedTextStyles = useAnimatedStyle(() => {
     const value = interpolate(progress.value, [0, 1], [1, 0]);

@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { ActionButton } from "../../components/ActionButton/ActionButton.component";
-import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton.component";
+import { ActionButton } from "../../components/ActionButton/ActionButton";
+import { ActionButtonsContainer } from "../../components/ActionButton/ActionButton";
 import BorrowIcon from "../../assets/icons/BorrowIcon";
 import LendIcon from "../../assets/icons/LendIcon";
 import AaveIcon from "../../assets/icons/AaveIcon";
 
-import PieChartExample from "../../components/WalletCard/PieChart.component";
+import PieChartExample from "../../components/WalletCard/PieChart";
 import {
   HomeContainer,
   WalletContainer,
@@ -15,12 +15,12 @@ import {
   HeaderContainer,
   HeaderText,
 } from "./Home.styles";
-import { WalletCard } from "../../components/WalletCard/WalletCard.component";
-import { MarketRow } from "../../components/MarketRow/MarketRow.component";
+import { WalletCard } from "../../components/WalletCard/WalletCard";
+import { MarketRow } from "../../components/MarketRow/MarketRow";
 import { StyledMarketsContainer } from "../../components/MarketRow/MarketRow.styles";
 import { MarketsData } from "../../mockdata/Markets";
 import { ChartContextProvider } from "../../context/ChartContext";
-import { PieChartIcon } from "../../components/WalletCard/PieChartIcon.Component";
+import { PieChartIcon } from "../../components/WalletCard/PieChartIcon";
 const { width, height } = Dimensions.get("window");
 interface HomeScreenProps {}
 

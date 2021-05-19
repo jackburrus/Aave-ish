@@ -1,24 +1,18 @@
+import { AntDesign } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
   Dimensions,
   Image,
-  TouchableWithoutFeedback,
   Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
-import { Modal, Portal, Provider } from "react-native-paper";
-import { Button, Menu, Divider } from "react-native-paper";
-
+import { Divider, Menu, Provider } from "react-native-paper";
 import styled, { useTheme } from "styled-components/native";
 import { MarketsData } from "../../mockdata/Markets";
-import { AntDesign } from "@expo/vector-icons";
+
 const { width, height } = Dimensions.get("window");
 
 const StyledExchangeContainer = styled.View`
-  /* height: 400px; */
-
   width: ${width - 30}px;
   display: flex;
   flex: 1;
@@ -36,7 +30,6 @@ const LendTitle = styled.Text`
 `;
 
 const AmountAndCoinContainer = styled.View`
-  /* border: 1px solid white; */
   margin: 20px;
   height: 75px;
   justify-content: space-between;
@@ -52,14 +45,13 @@ const AmountTextInput = styled.TextInput`
 `;
 
 const CoinContainer = styled.Pressable`
-  /* border: 1px solid black; */
   flex-direction: row;
   align-items: center;
 `;
 
 const StyledAssetText = styled.Text`
   color: ${(props) => props.theme.main};
-  /* opacity: 0.5; */
+
   font-size: 16px;
   font-family: "Rubik_500Medium";
 `;
@@ -76,7 +68,7 @@ const StyledSubText = styled.Text`
 const StyledPortfolioContainer = styled.View`
   margin: 20px;
   height: 75px;
-  /* justify-content: space-between; */
+
   align-items: center;
   padding-left: 20px;
   flex-direction: row;
@@ -118,8 +110,6 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
             visible={visible}
             onDismiss={closeMenu}
             style={{
-              // borderWidth: 1,
-              // borderColor: "red",
               marginLeft: 20,
               width: width - 70,
             }}

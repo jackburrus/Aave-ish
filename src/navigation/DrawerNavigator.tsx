@@ -1,21 +1,17 @@
-import * as React from "react";
-
+import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { HomeScreen } from "../screens/HomeScreen/HomeScreen.screen";
 import { useNavigation } from "@react-navigation/native";
-import { Pressable, Dimensions, View } from "react-native";
 import Constants from "expo-constants";
-import { Avatar, Divider } from "react-native-paper";
-import { AntDesign } from "@expo/vector-icons";
+import * as React from "react";
+import { Alert, Dimensions, Pressable, View } from "react-native";
+import { Avatar } from "react-native-paper";
 import styled, { useTheme } from "styled-components/native";
 import AaveIcon from "../assets/icons/AaveIcon";
-import HomeStackNavigator from "./HomeStackNavigator";
-import { Text } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
-import { TransactionData } from "../mockdata/TransactionData";
 import { BorrowDepositRow } from "../components/TransactionHistoryRow/BorrowDeposit";
 import { CollateralChangeRow } from "../components/TransactionHistoryRow/CollateralChangeRow";
-import { Alert } from "react-native";
+import { TransactionData } from "../mockdata/TransactionData";
+import HomeStackNavigator from "./HomeStackNavigator";
+
 const { width, height } = Dimensions.get("window");
 
 const Drawer = createDrawerNavigator();
@@ -35,9 +31,7 @@ const HeaderLeft = () => {
 
 export const HeaderRight = ({ navigation }) => {
   return (
-    <Pressable
-    //   onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-    >
+    <Pressable>
       <Avatar.Image
         size={48}
         style={{ marginRight: 20 }}
@@ -56,7 +50,6 @@ const StyledDrawerContainer = styled.View`
   padding-top: ${Constants.statusBarHeight}px;
 `;
 const StyledHeaderContainer = styled.View`
-  /* border: 1px solid red; */
   display: flex;
   flex: 0.2;
   width: ${width}px;
@@ -65,7 +58,6 @@ const StyledHeaderContainer = styled.View`
   padding-right: 10px;
 `;
 const StyledProfileDetailsContainer = styled.View`
-  /* border: 1px solid red; */
   display: flex;
   flex: 1;
   width: ${width}px;
@@ -73,7 +65,6 @@ const StyledProfileDetailsContainer = styled.View`
   align-items: center;
 `;
 const StyledTransactionHistoryContainer = styled.ScrollView`
-  /* border: 1px solid red; */
   display: flex;
   flex: 2;
   width: ${width}px;
@@ -89,7 +80,6 @@ const StyledLinkText = styled.Text`
   color: ${(props) => props.theme.linkBlue};
   font-size: 12px;
   font-family: "Rubik_500Medium";
-  /* margin-top: 10px; */
 `;
 
 const CustomDrawer = ({ navigation }) => {
@@ -97,9 +87,6 @@ const CustomDrawer = ({ navigation }) => {
   return (
     <StyledDrawerContainer>
       <StyledHeaderContainer>
-        {/* <Pressable>
-
-          </Pressable> */}
         <MaterialIcons
           onPress={() => navigation.toggleDrawer()}
           name="arrow-forward-ios"
@@ -140,9 +127,9 @@ const CustomDrawer = ({ navigation }) => {
       {/* <Divider
         style={{
           backgroundColor: lightGreen,
-          //   height: 2,
+          
 
-          //   borderWidth: 1,
+          
           width: width,
         }}
       /> */}
@@ -196,17 +183,6 @@ export const MainDrawerNavigator = () => {
         <CustomDrawer navigation={navigation} />
       )}
       drawerStyle={{ width: width }}
-      //   screenOptions={{
-      //     headerLeft: () => <HeaderLeft />,
-      //     headerRight: ({ navigation }) => (
-      //       <HeaderRight navigation={navigation} />
-      //     ),
-      //     headerStyle: {
-      //       backgroundColor: theme.main,
-      //       shadowColor: "transparent",
-      //     },
-      //   }}
-      //   initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={HomeStackNavigator} />
       {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}

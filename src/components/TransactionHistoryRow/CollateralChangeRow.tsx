@@ -1,8 +1,10 @@
-import React from "react";
-import { Image, ImageSourcePropType } from "react-native";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import styled, { useTheme } from "styled-components/native";
 import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { Dimensions, Image, ImageSourcePropType, View } from "react-native";
+import styled, { useTheme } from "styled-components/native";
+
+import { IconContainer } from "../ActionButton/ActionButton";
+
 type changeCollateral = {
   from: string;
   to: string;
@@ -16,8 +18,6 @@ interface CollateralChangeRowProps {
   iconImageSource: ImageSourcePropType;
 }
 const { width, height } = Dimensions.get("window");
-
-import { IconContainer } from "../ActionButton/ActionButton.component";
 
 const RowContainer = styled.View`
   width: ${width - 50}px;

@@ -1,16 +1,62 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, ImageSourcePropType } from "react-native";
-import { IconContainer } from "../ActionButton/ActionButton.component";
-import {
-  StyledAPYContainer,
-  StyledDetailsContainer,
-  StyledIconContainer,
-  StyledMarketRowContainer,
-  StyledMarketRowValue,
-  StyledMarketSizeContainer,
-  StyledMarketSizeText,
-} from "./MarketRow.styles";
+import { Dimensions, Image, ImageSourcePropType } from "react-native";
+import styled from "styled-components/native";
+import { IconContainer } from "../ActionButton/ActionButton";
+
+const { width } = Dimensions.get("window");
+
+const StyledMarketRowContainer = styled.Pressable`
+  width: ${width - 50}px;
+
+  height: 100px;
+  border-radius: 20px;
+  background-color: ${(props) => props.theme.lightGreen};
+
+  margin-top: 20px;
+  flex-direction: row;
+`;
+
+const StyledIconContainer = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledDetailsContainer = styled.View`
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  margin-right: 10px;
+`;
+const StyledMarketSizeContainer = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+const StyledAPYContainer = styled.View`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledMarketSizeText = styled.Text`
+  color: ${(props) => props.theme.main};
+  font-size: 16px;
+  font-family: "Rubik_500Medium";
+  padding-bottom: 5px;
+`;
+
+const StyledMarketRowValue = styled.Text`
+  color: ${(props) => props.theme.main};
+  font-size: 14px;
+  font-family: "Rubik_500Medium";
+  opacity: 0.6;
+`;
+
 interface MarketRowProps {
   marketSize: string;
   depositAPY: number;
@@ -35,7 +81,6 @@ export const MarketRow = (props: MarketRowProps) => {
     <StyledMarketRowContainer
       style={{ backgroundColor: bgColor }}
       onPress={() => {
-        // navigation.setParams({ title: asset });
         navigation.navigate("MarketDetails", { props });
       }}
     >
@@ -43,7 +88,6 @@ export const MarketRow = (props: MarketRowProps) => {
         <IconContainer
           style={{ width: 70, height: 70 }}
           shadowColor={"rgba(88, 90, 88, 0.2)"}
-          // shadowColor={iconContainerHighlight}
         >
           <Image source={icon} style={{ width: 40, height: 40 }} />
         </IconContainer>

@@ -14,7 +14,7 @@ import {
 } from "./MarketDetails.styles";
 import MarketDetailsPieChart from "./MarketDetailsPieChart";
 import { MarketDetailsText } from "./MarketDetailsText";
-import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow.component";
+import { APYDetailRow } from "../../components/APYDetailRow/APYDetailRow";
 import { device } from "../../constants/index";
 import { ExtraDetails } from "./ExtraDetails";
 import { HeaderText, HeaderContainer } from "../HomeScreen/Home.styles";

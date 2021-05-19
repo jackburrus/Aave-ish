@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Dimensions, View, Text } from "react-native";
 import {
   ChartDot,
   ChartPath,
   ChartPathProvider,
-  monotoneCubicInterpolation,
-  useChartData,
-  ChartYLabel,
   ChartXLabel,
+  ChartYLabel,
+  monotoneCubicInterpolation,
 } from "@rainbow-me/animated-charts";
+import React, { useState } from "react";
+import { Dimensions, View } from "react-native";
 import { useTheme } from "styled-components";
-import { APYChartLabel } from "./APYChartLabel";
-import { runOnJS, useDerivedValue } from "react-native-reanimated";
 export const { width: SIZE } = Dimensions.get("window");
 
 const getData = (type, subtitle) => {
@@ -107,7 +104,6 @@ const APYChart = (props) => {
     const d = date.getDate();
     const n = date.getMonth();
 
-    // return `${monthNames[n]}`;
     return `${monthNames[n]} ${d}`;
   };
 
@@ -158,10 +154,3 @@ const APYChart = (props) => {
   );
 };
 export default APYChart;
-
-// font-size: 24px;
-
-//   color: ${(props) => props.theme.main};
-//   font-family: "Rubik_500Medium";
-//   opacity: 0.8;
-//   margin-top: 10px;
