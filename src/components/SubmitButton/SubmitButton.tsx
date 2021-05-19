@@ -1,23 +1,27 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable, Dimensions } from "react-native";
-import styled from "styled-components/native";
+import styled, { useTheme } from "styled-components/native";
 interface SubmitButtonProps {}
 const { width, height } = Dimensions.get("window");
 import { Feather } from "@expo/vector-icons";
 import Animated, {
   Extrapolate,
   interpolate,
+  interpolateColor,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withTiming,
 } from "react-native-reanimated";
-const StyledButtonContainer = styled.Pressable`
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+const StyledButtonContainer = styled(AnimatedPressable)`
   width: ${width / 1.8}px;
   height: 60px;
 
   border-radius: 20px;
-  background-color: ${(props) => props.theme.lightBlueHighlight};
+  /* background-color: ${(props) => props.theme.lightBlueHighlight}; */
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -32,6 +36,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   const [clicked, setClicked] = useState(false);
   const progress = useSharedValue(0);
   const translateX = useSharedValue(0);
+  const { lightBlueHighlight, liquidGreen } = useTheme();
 
   const onPress = useCallback(() => {
     // setClicked(!clicked);
@@ -45,18 +50,20 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   }, [progress, translateX]);
 
   const animatedIconStyles = useAnimatedStyle(() => {
-    const value = interpolate(
-      progress.value,
-      [0, 8],
-      [0, 360],
-      Extrapolate.CLAMP,
-    );
     const opacityValue = interpolate(translateX.value, [0, 100], [1, 0]);
     return {
       transform: [{ translateX: translateX.value }],
       opacity: opacityValue,
     };
   });
+
+  const animatedBackground = useAnimatedStyle(() => ({
+    backgroundColor: interpolateColor(
+      translateX.value,
+      [0, 100],
+      [lightBlueHighlight, liquidGreen],
+    ) as string,
+  }));
 
   // useEffect(() => {
   //   // if (progress.value === 1) {
@@ -72,8 +79,15 @@ export const SubmitButton = (props: SubmitButtonProps) => {
     };
   });
 
+  // const animatedSuccessStyles = useAnimatedStyle(() => {
+  //   const value = withTiming(interpolate(translateX.value, [0, 100], [0, 1]));
+  //   return {
+  //     opacity: value,
+  //   };
+  // });
+
   return (
-    <StyledButtonContainer onPress={onPress}>
+    <StyledButtonContainer onPress={onPress} style={animatedBackground}>
       <Animated.View style={animatedIconStyles}>
         <Feather
           name="send"
