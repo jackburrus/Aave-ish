@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable, Dimensions } from "react-native";
 import styled from "styled-components/native";
 interface SubmitButtonProps {}
@@ -9,6 +9,7 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withTiming,
 } from "react-native-reanimated";
 const StyledButtonContainer = styled.Pressable`
@@ -30,12 +31,18 @@ const StyledButtonText = styled.Text`
 export const SubmitButton = (props: SubmitButtonProps) => {
   const [clicked, setClicked] = useState(false);
   const progress = useSharedValue(0);
+  const translateX = useSharedValue(0);
 
   const onPress = useCallback(() => {
     // setClicked(!clicked);
     // setTextColor(switchState ? 'rgb(72,202,228)' : 'white')
     progress.value = withTiming(progress.value === 0 ? 1 : 0);
-  }, [progress]);
+    translateX.value = withDelay(
+      500,
+      withTiming(translateX.value === 0 ? 100 : 0),
+    );
+    // translateX.value = withTiming(100);
+  }, [progress, translateX]);
 
   const animatedIconStyles = useAnimatedStyle(() => {
     const value = interpolate(
@@ -44,10 +51,19 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       [0, 360],
       Extrapolate.CLAMP,
     );
+    const opacityValue = interpolate(translateX.value, [0, 100], [1, 0]);
     return {
-      transform: [{ rotateZ: `${value}deg` }],
+      transform: [{ translateX: translateX.value }],
+      opacity: opacityValue,
     };
   });
+
+  // useEffect(() => {
+  //   // if (progress.value === 1) {
+  //   //   console.log("ran");
+  //   translateX.value = withTiming(translateX.value === 1 ? 100 : 0);
+  //   // }
+  // }, [progress.value]);
 
   const animatedTextStyles = useAnimatedStyle(() => {
     const value = interpolate(progress.value, [0, 1], [1, 0]);
@@ -63,7 +79,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
           name="send"
           size={20}
           color="white"
-          style={{ marginRight: 10 }}
+          style={{ marginRight: 15, transform: [{ rotateZ: "45deg" }] }}
         />
       </Animated.View>
       <Animated.View style={animatedTextStyles}>
