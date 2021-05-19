@@ -15,12 +15,13 @@ import Animated, {
 } from "react-native-reanimated";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
-
+const BUTTON_WIDTH = width / 1.8;
+const BUTTON_RADIUS = 20;
 const StyledButtonContainer = styled(AnimatedPressable)`
-  width: ${width / 1.8}px;
-  height: 60px;
+  width: ${BUTTON_WIDTH}px;
+  height: 50px;
 
-  border-radius: 20px;
+  border-radius: ${BUTTON_RADIUS}px;
   /* background-color: ${(props) => props.theme.lightBlueHighlight}; */
   justify-content: center;
   align-items: center;
@@ -63,6 +64,13 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       [0, 100],
       [lightBlueHighlight, liquidGreen],
     ) as string,
+    width: withTiming(
+      interpolate(translateX.value, [0, 100], [BUTTON_WIDTH, 50]),
+    ),
+
+    borderRadius: withTiming(
+      interpolate(translateX.value, [0, 100], [BUTTON_RADIUS, 100]),
+    ),
   }));
 
   // useEffect(() => {
@@ -79,13 +87,6 @@ export const SubmitButton = (props: SubmitButtonProps) => {
     };
   });
 
-  // const animatedSuccessStyles = useAnimatedStyle(() => {
-  //   const value = withTiming(interpolate(translateX.value, [0, 100], [0, 1]));
-  //   return {
-  //     opacity: value,
-  //   };
-  // });
-
   return (
     <StyledButtonContainer onPress={onPress} style={animatedBackground}>
       <Animated.View style={animatedIconStyles}>
@@ -96,6 +97,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
           style={{ marginRight: 15, transform: [{ rotateZ: "45deg" }] }}
         />
       </Animated.View>
+
       <Animated.View style={animatedTextStyles}>
         <StyledButtonText style={{ color: "white" }}>Submit</StyledButtonText>
       </Animated.View>
