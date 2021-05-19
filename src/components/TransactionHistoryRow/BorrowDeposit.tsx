@@ -123,7 +123,7 @@ export const BorrowDepositRow = (props: BorrowDepositRowProps) => {
         <StyledAmountUSD
           style={{ color: type === "Borrowed" ? lightGreen : liquidGreen }}
         >
-          {amountUSD}
+          ${amountUSD}
         </StyledAmountUSD>
       </AmountContainer>
     </RowContainer>

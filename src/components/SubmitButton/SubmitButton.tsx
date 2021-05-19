@@ -25,7 +25,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
-const BUTTON_WIDTH = width / 1.8;
+const BUTTON_WIDTH = width / 2.5;
 const BUTTON_RADIUS = 20;
 const StyledButtonContainer = styled(AnimatedPressable)`
   width: ${BUTTON_WIDTH}px;
@@ -48,7 +48,13 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   const progress = useSharedValue(0);
   const translateX = useSharedValue(0);
   const checkOpacity = useSharedValue(0);
-  const { lightBlueHighlight, liquidGreen } = useTheme();
+  const {
+    lightBlueHighlight,
+    liquidGreen,
+    lightBlue,
+    main,
+    lightGreen,
+  } = useTheme();
   const { toast } = useToast();
 
   const onPress = useCallback(() => {
@@ -79,7 +85,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
     backgroundColor: interpolateColor(
       translateX.value,
       [0, 100],
-      [lightBlueHighlight, liquidGreen],
+      [lightGreen, liquidGreen],
     ) as string,
     width: withTiming(
       interpolate(translateX.value, [0, 100], [BUTTON_WIDTH, 50]),
@@ -130,13 +136,19 @@ export const SubmitButton = (props: SubmitButtonProps) => {
         <Feather
           name="send"
           size={20}
-          color="white"
-          style={{ marginRight: 15, transform: [{ rotateZ: "45deg" }] }}
+          color={main}
+          style={{
+            marginRight: 15,
+            transform: [{ rotateZ: "45deg" }],
+            opacity: 0.6,
+          }}
         />
       </Animated.View>
 
       <Animated.View style={animatedTextStyles}>
-        <StyledButtonText style={{ color: "white" }}>Submit</StyledButtonText>
+        <StyledButtonText style={{ color: main, opacity: 0.6 }}>
+          Submit
+        </StyledButtonText>
       </Animated.View>
       <Animated.View
         style={[{ position: "absolute" }, animatedCheckIconStyles]}
