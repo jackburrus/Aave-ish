@@ -8,9 +8,10 @@ import {
 } from "react-native";
 import { Divider, Menu, Provider } from "react-native-paper";
 import styled, { useTheme } from "styled-components/native";
+
 import { MarketsData } from "../../mockdata/Markets";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 const StyledExchangeContainer = styled.View`
   width: ${width - 30}px;
@@ -82,7 +83,7 @@ const StyledPortfolioAmount = styled.Text`
   font-size: 18px;
   font-family: "Rubik_500Medium";
 
-  margin-left: 50px;
+  margin-left: 100px;
 `;
 
 interface ExchangeContainerProps {
@@ -91,7 +92,7 @@ interface ExchangeContainerProps {
 
 export const ExchangeContainer = (props: ExchangeContainerProps) => {
   const { type } = props;
-  const { main, lightPurple, greyish, darkPurple, menuPurple } = useTheme();
+  const { main, menuPurple } = useTheme();
   const [visible, setVisible] = React.useState(false);
   const [activeCoin, setActiveCoin] = useState(0);
   const [amount, onChangeAmount] = useState(null);
@@ -168,7 +169,9 @@ export const ExchangeContainer = (props: ExchangeContainerProps) => {
               style={{ width: 30, height: 30, marginRight: 10 }}
             />
             <StyledAssetText>{MarketsData[activeCoin].asset}</StyledAssetText>
-            <StyledPortfolioAmount>$100,432.49</StyledPortfolioAmount>
+            <StyledPortfolioAmount>
+              ${MarketsData[activeCoin]?.portfolioAmount}
+            </StyledPortfolioAmount>
           </StyledPortfolioContainer>
         </StyledExchangeContainer>
       </TouchableWithoutFeedback>

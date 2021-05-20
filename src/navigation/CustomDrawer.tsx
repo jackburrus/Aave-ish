@@ -1,15 +1,12 @@
-import React from "react";
-import Constants from "expo-constants";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
-import { TransactionData } from "../mockdata/TransactionData";
+import Constants from "expo-constants";
+import React from "react";
+import { Alert, Dimensions, Pressable, View } from "react-native";
+import { Avatar } from "react-native-paper";
+import styled, { useTheme } from "styled-components/native";
 import { BorrowDepositRow } from "../components/TransactionHistoryRow/BorrowDeposit";
 import { CollateralChangeRow } from "../components/TransactionHistoryRow/CollateralChangeRow";
-import styled, { useTheme } from "styled-components/native";
-import { Dimensions } from "react-native";
-import { Avatar } from "react-native-paper";
-import { View } from "react-native";
-import { Pressable } from "react-native";
-import { Alert } from "react-native";
+import { TransactionData } from "../mockdata/TransactionData";
 
 const { width } = Dimensions.get("window");
 

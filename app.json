@@ -25,9 +25,7 @@
         "foregroundImage": "./src/assets/App_store_1024_1x.png",
         "backgroundColor": "#FFFFFF"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
+    
   }
 }

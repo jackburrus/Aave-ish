@@ -6,6 +6,7 @@ export const MarketsData = [
     depositAPY: 0.02,
     cardColor: "#FAECE0",
     iconContainerHighlight: "rgba(250, 224, 225, 0.9)",
+    portfolioAmount: "10,231",
   },
   {
     asset: "Aave",
@@ -14,6 +15,7 @@ export const MarketsData = [
     depositAPY: 0.15,
     cardColor: "#CFCAF1",
     iconContainerHighlight: "rgba(230, 189, 254, 0.6)",
+    portfolioAmount: "30,429",
   },
   {
     asset: "Uniswap",
@@ -22,6 +24,7 @@ export const MarketsData = [
     depositAPY: 0.01,
     cardColor: "#EAD6DE",
     iconContainerHighlight: "rgba(251, 197, 245, 0.8)",
+    portfolioAmount: "8,351",
   },
   {
     asset: "Compound",
@@ -30,6 +33,7 @@ export const MarketsData = [
     depositAPY: 0.04,
     cardColor: "#FAECE0",
     iconContainerHighlight: "rgba(250, 224, 225, 0.9)",
+    portfolioAmount: "2,756",
   },
 ];
 
