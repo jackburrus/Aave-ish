@@ -1,4 +1,4 @@
-# Aave: UI with React Native and Expo
+# Aave: UI Mockup with React Native and Expo
 
 ![./assets/ReadMeBanner.png](./src/assets/ReadMeBanner.png)
 
@@ -14,7 +14,7 @@
 
 ## About 
 
-This is a UI mockup of the Ethereum based liquidity protocol, Aave.
+UI mockup of the Ethereum based liquidity protocol, Aave.
 
 
 ## Features
@@ -38,3 +38,7 @@ First, make sure you have Expo CLI installed: `npm install -g expo-cli`
 Install: `yarn` or `yarn install`
 
 Run Project Locally: `yarn start` or `expo start`
+
+## Future Plans 
+- Connect to [The Graph](https://thegraph.com/) to add realtime data
+- Add functionality from [Aave JS](https://github.com/aave/aave-js) to execute transactions on Mainnet. 
