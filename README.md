@@ -13,12 +13,12 @@
 
 
 ## About 
----
+
 This is a UI mockup of the Ethereum based liquidity protocol, Aave.
 
 
 ## Features
----
+
 
 🛠️ Expo SDK 41
 
@@ -31,7 +31,7 @@ This is a UI mockup of the Ethereum based liquidity protocol, Aave.
 
 
 ## Install & Build
----
+
 
 First, make sure you have Expo CLI installed: `npm install -g expo-cli`
 
