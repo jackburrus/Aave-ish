@@ -10,6 +10,7 @@ import { ToastProvider } from "react-native-styled-toast";
 import { ThemeProvider } from "styled-components/native";
 import { MainDrawerNavigator } from "./src/navigation/DrawerNavigator";
 import { darkTheme } from "./src/theme/theme";
+import { StatusBar } from "react-native";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,6 +26,7 @@ export default function App() {
       <ThemeProvider theme={darkTheme}>
         <ToastProvider>
           <MainDrawerNavigator />
+          <StatusBar barStyle="light-content" backgroundColor={"#1b1d5b"} />
         </ToastProvider>
       </ThemeProvider>
     </NavigationContainer>
